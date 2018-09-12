@@ -1,0 +1,45 @@
+package datatypes;
+
+
+// inner class
+	// use: outter class private member can access innner class
+
+// 4 types of inner class
+/*
+ * 1 regular inner class
+ * 2 static inner class
+ * 3 method local inner class
+ * 4 anonymous inner class
+ */
+
+class Raghu
+{
+	private int x=100;
+	class susanth
+	{
+		//private int x=200;
+			void display()
+			{
+			System.out.println("Regualr inner class "+x);	
+			}		
+	}
+	
+}
+
+
+
+public class InnerClass1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+			Raghu ob1=new Raghu();
+			// ob1.new susanth().display();;
+			
+			Raghu.susanth ob2=ob1.new susanth();
+			ob2.display();
+			
+		
+	}
+
+}
