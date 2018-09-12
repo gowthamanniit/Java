@@ -1,0 +1,86 @@
+package datatypes;
+
+// inner class
+	// use: outter class private member can access innner class
+
+// 4 types of inner class
+/*
+ * 1 regular inner class
+ * 2 static inner class
+ * 3 method local inner class
+ * 4 anonymous inner class
+ */
+
+// 3.method local inner class. (basic model)
+
+class Raghu
+{
+		void display()
+		{
+			class susanth     // class inside method 
+			{
+				void display()
+				{
+					System.out.println("method local inner class");
+				}
+			}		
+			susanth obj=new susanth();
+			obj.display();
+		}
+}
+
+
+
+public class InnerClass1 {
+
+	public static void main(String[] args) {
+			
+					Raghu obj=new Raghu();
+					obj.display();
+			
+			
+	}
+
+}
+
+
+advanced model with variables
+
+
+package datatypes;
+
+
+class Raghu
+{
+	private  int k=200;
+	static int y=500;
+		void display()
+		{
+			class susanth     // class inside method 
+			{
+				int k=300;
+				static final int y=600;
+				void display()
+				{
+					System.out.println("method local inner class "+k +"  "+Raghu.this.k+" "+y+"   "+Raghu.y);
+				}
+			}		
+			susanth obj=new susanth();
+			obj.display();
+		}
+}
+
+
+
+public class InnerClass1 {
+
+	public static void main(String[] args) {
+			
+					Raghu obj=new Raghu();
+					obj.display();
+			
+			
+	}
+
+}
+
