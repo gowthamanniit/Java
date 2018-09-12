@@ -1,14 +1,33 @@
+package datatypes;
+
+// inner class
+	// use: outter class private member can access innner class
+
+// 4 types of inner class
+/*
+ * 1 regular inner class
+ * 2 static inner class
+ * 3 method local inner class
+ * 4 anonymous inner class
+ */
+
 class Raghu
 {
 	private static int x=100;
+	private int  y=100;
 	static class susanth
 	{
 		//private static int x=200;
 		int y=200;
 			static void display()   // dont create object to call static method.
 			{
-			System.out.println("Static inner class static method "+x);	
+			System.out.println("Static inner class static method "+x);	   // only static  variable allowed (y not allowed because non static)
 			}			
+			void display2()    // create object 
+			{
+				System.out.println(" non static mem "+y);   //accept both static and non static variable
+				System.out.println(" static mem     "+x);
+			}
 	}
 	
 }
@@ -19,8 +38,12 @@ public class InnerClass1 {
 
 	public static void main(String[] args) {
 			
-			Raghu.susanth.display();		
-		
+			Raghu.susanth.display();   // static method call		
+		//-----------------------------
+			Raghu.susanth ob=new Raghu.susanth();
+			ob.display2();
+			
+			
 	}
 
 }
