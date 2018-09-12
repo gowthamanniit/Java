@@ -19,7 +19,7 @@ class Raghu
 	{
 		//private static int x=200;
 		int y=200;
-			static void display()   // dont create object to call static method.
+			static void display()   // dont create object to call static method.(only declare static method inside static class)
 			{
 			System.out.println("Static inner class static method "+x);	   // only static  variable allowed (y not allowed because non static)
 			}			
