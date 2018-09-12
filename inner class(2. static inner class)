@@ -1,0 +1,26 @@
+class Raghu
+{
+	private static int x=100;
+	static class susanth
+	{
+		//private static int x=200;
+		int y=200;
+			static void display()   // dont create object to call static method.
+			{
+			System.out.println("Static inner class static method "+x);	
+			}			
+	}
+	
+}
+
+
+
+public class InnerClass1 {
+
+	public static void main(String[] args) {
+			
+			Raghu.susanth.display();		
+		
+	}
+
+}
