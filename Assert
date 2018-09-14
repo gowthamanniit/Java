@@ -1,0 +1,22 @@
+package except;
+
+import java.util.Scanner;
+
+public class AssertKey {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter your age:");
+		int age=scan.nextInt();
+		
+		//assert (age>30) && (age<=100);
+assert (age>30) && (age<=100):"pass your error names";
+		System.out.println("Age is "+age);
+	}
+
+}
+
+
+compile: javac AssertKey.java
+run: java -ea AssertKey  // -ea enable assert
