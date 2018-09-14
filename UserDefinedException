@@ -1,0 +1,54 @@
+package except;
+import java.util.Scanner;
+class UserExcep extends RuntimeException
+{
+	Scanner scan=new Scanner(System.in);
+	public UserExcep(){}
+	public UserExcep(String k)
+	{
+		System.out.println("user defined exception raised "+k);
+	}
+	void display() //throws Exception
+	{		
+		try
+		{
+		System.out.println("Enter your Age:");
+		int age=scan.nextInt();
+		if(!(age>=18))
+		{
+			throw new UserExcep("your error name ");
+			//throw new Exception("not accept age");
+		}
+		else
+		{
+			System.out.println("Age is accepted");
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println(" error "+e.toString());
+			display();
+		}
+		
+	}	
+}
+
+public class ThrowError {
+
+	public static void main(String[] args)  {
+		// TODO Auto-generated method stub
+
+		UserExcep ob=new UserExcep();
+		
+		try
+		{
+		ob.display();
+		}
+		catch(Exception e)
+		{
+			System.out.println("error1");
+		}
+		}
+	}
+
+
