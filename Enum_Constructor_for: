@@ -1,0 +1,47 @@
+package classandobject;
+enum days{sunday(7),monday(1),tuesday(2),wednesday(3),thursday(4),friday(5),saturday(6);
+	int s;
+	days(int k)
+	{
+		s=k;
+	}
+	int getDay()
+	{
+		return s;
+	}
+}
+
+public class ForEach1 
+{
+	public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	//int a[]={23,55,66,77,88,99,100,66,78,99,100};
+	//String a1[]={"sakayam","anand","raj"};
+	//char a2[]={'a','b','c','d','e','f','\0'};
+	
+	String a3="gowthaman";
+	char a4[]=a3.toCharArray();	
+	
+	/*
+	for(int m=0;m<a.length;m++)
+	{
+		System.out.print(" "+a[m]);
+	}		
+	for(char q:a4)
+	{
+		System.out.println(" -> "+q);
+	}*/
+	
+	//System.out.println(days.sunday);
+	
+	days ob=days.saturday;
+	
+	int ans =ob.getDay();
+	System.out.println(ans);
+	
+	for(days d:days.values())
+	{
+		System.out.println(d+" = "+d.getDay());
+	}
+	}
+}
