@@ -1,0 +1,56 @@
+package classandobject;
+
+public class StringBuilder1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String k=new String("anandSakayaraj");
+		k.toUpperCase(); // immutable 
+		System.out.println(k);
+		
+		StringBuilder sb=new StringBuilder("sakayamanandraj"); 
+		sb.reverse(); // mutable 
+		
+		System.out.println(sb);
+		
+		sb.append("karur"); // mutable
+		System.out.println(sb);
+		
+		int ans=sb.indexOf("ama");
+		System.out.println(ans);
+		
+		sb.replace(5, 10, "karur");
+		System.out.println(sb);
+		
+		sb.delete(5,10);
+		System.out.println(sb);
+		
+		sb.insert(3, "true1");
+		System.out.println(sb);
+
+		/*int a[]={23,55,66,77,88,99,100,66,78,99,100};
+		String a1[]={"sakayam","anand","raj"};
+		char a2[]={'a','b','c','d','e','f','\0'};
+		
+		String a3="gowthaman";
+		
+		char a4[]=a3.toCharArray();
+	
+	/*
+	for(int m=0;m<a.length;m++)
+	{
+		System.out.println(a[m]);
+	}
+	*/
+	/*
+	for(char q:a4)
+	{
+		System.out.println(" -> "+q);
+	}
+	
+	*/
+	
+	}
+
+}
