@@ -1,0 +1,66 @@
+package except;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class ExceptionHand1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan=new Scanner(System.in);
+		try
+		{
+			/*System.out.println("Enter No.1:");
+			byte a=scan.nextByte();
+			System.out.println("Enter No.2:");
+			byte b=scan.nextByte();*/
+
+			System.out.println("Enter Array size:");
+			byte size=scan.nextByte();
+			
+			int arr[]=new int[size];
+			
+			System.out.println("Enter Array position:");
+			byte pos=scan.nextByte();
+			
+			arr[pos]=100;
+			System.out.println("array size accepted");
+			System.out.println("array value stored success");
+			
+			
+			//int c=a/b;
+			
+			
+			/*System.out.println(a+" number accepted ");
+			System.out.println(b+" number accepted ");
+			System.out.println(" quotient : "+c);*/
+			
+		}
+		
+		catch(NegativeArraySizeException e)
+		{
+			System.out.println("dont give negative array size");
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("array store error (size problem)");
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println(" give correct input");
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println(" 0/0  n/0  error "+e.toString());
+		}
+		catch(Exception e)
+		{
+			System.out.println("something error"+e.toString());
+		}
+		finally
+		{
+			System.out.println("Program finished");
+			scan.close();
+		}
+		
+	}
+
+}
