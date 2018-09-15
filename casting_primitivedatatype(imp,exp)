@@ -1,0 +1,28 @@
+package AnonymousClass;
+
+
+
+public class TypeCastingDataType {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		byte v1=127;
+		
+		short v2=v1;  // implicit casting (automatic)
+		
+		//=======================
+		
+		short v3=132;    
+		byte v4=(byte)v3;  // explicit casting
+							// output: -124
+		
+		//============================
+		
+		System.out.println(" v2  = "+v2);
+		System.out.println(" v4  = "+v4);
+		
+		
+	}
+
+}
