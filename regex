@@ -1,0 +1,66 @@
+package CastingObjects;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//Pattern p1=Pattern.compile("[abc]");// a or b or c
+		//Pattern p1=Pattern.compile("[abc]at"); // bat or aat or cat
+		//Pattern p1=Pattern.compile("[^abc]");  // except a or b or c
+		
+		//Pattern p1=Pattern.compile("[a-z]");  // only one char from a-z
+		//Pattern p1=Pattern.compile("[a-zA-Z]"); // only one char from a-z or A-Z
+		//Pattern p1=Pattern.compile("[b-e[n-q]]"); // only one char from b-e or n-q
+		
+		// Pattern p1=Pattern.compile("[b-e&&[abc]]");  // only one char both side (true) && (true)
+		
+		// Pattern p1=Pattern.compile("[b-e&&[^n-q]]");
+		
+		//Pattern p1=Pattern.compile("[a-z]?");  //  [a-z] - only one char or null;
+		//Matcher m1=p1.matcher("");
+		//System.out.println(m1.matches());
+		
+//		Pattern p1=Pattern.compile("[a-z]+");  // minimum one , max unlimit
+		
+//		Matcher m1=p1.matcher("a");
+//		System.out.println(m1.matches());
+		
+		
+		// Pattern p1=Pattern.compile("[a-z]*");  // zero or more char's only a-z
+		
+		// Pattern p1=Pattern.compile("[a-zA-Z]*"); // zero or more char's only a-z A-Z
+		
+		 
+		
+		//Pattern p1=Pattern.compile("[a-z]{5}"); // only taken five chars
+		
+		//Pattern p1=Pattern.compile("[a-z]{5,10}");  // 5 to 10
+		
+		//Pattern p1=Pattern.compile("[0-9]{5,}");  // min 5 , max ?
+		
+		//Pattern p1=Pattern.compile("[^a-zA-Z0-9]{5,}"); // only taken special char
+		
+		
+		//Pattern p1=Pattern.compile(".a"); // . represent single any char.
+		
+		//Pattern p1=Pattern.compile("..a");
+		//Matcher m1=p1.matcher("1!a");
+		
+		
+		
+		//System.out.println(m1.matches());
+		
+		// method 2
+		// System.out.println(Pattern.compile("[abc]").matcher("a").matches());
+		
+		// method 3
+		//System.out.println(Pattern.matches("[abc]","a"));
+		
+		
+	}
+
+}
