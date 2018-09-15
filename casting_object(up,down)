@@ -1,0 +1,52 @@
+package CastingObjects;
+class Employee
+{
+	public Employee()
+	{
+		System.out.println("cons emp");
+	}
+	void dis()
+	{
+		System.out.println("Employee Details");
+	}
+}
+class Manager extends Employee
+{
+	public Manager()
+	{
+		System.out.println("cons Manager");
+	}
+	void dis()
+	{
+		System.out.println("Manager Details");
+	}
+}
+
+public class ObjectCasting {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+			/*Manager m1=new Manager();
+			m1.dis();
+			System.out.println("==========");
+			Employee e1=new Employee();
+			e1.dis();
+			System.out.println("==========");
+			e1=m1; // upcasting(move bottom to top)			
+			e1.dis();*/	
+		System.out.println("====down casting ======");
+		
+			// dont create instance to derive class. suppose you create instance to derive class
+			// assign ref to base class
+			
+			Employee e1=new Manager();
+			e1.dis();
+		System.out.println("==========");
+			Manager m1;
+			m1=(Manager)e1;   // down casting
+			m1.dis();
+			
+	
+			
+	}
+}
