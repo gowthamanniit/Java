@@ -1,0 +1,47 @@
+package Operator;
+
+public class Operator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+			int a=2;
+			int b=3;
+			int c=5;
+			
+			System.out.println(a+b*c+ ++a);
+					// 20
+			System.out.println(a+b*c+ a++);
+			//21
+			System.out.println(a);
+			//4
+			System.out.println((a+b)*c);
+			//35
+			System.out.println((a+b)/2*c);
+			//15
+			System.out.println((a+b)/(2*c));
+			//0
+			
+			a=4;
+			System.out.println(++a + 5 / a);
+			
+			// step 1: ++  (a=5)
+			// step 2: 5/a  5/5 =1 
+			// step 3: step1 + step2
+				// 6
+			a=4;
+			System.out.println(a++ + 5 / a);
+			// step 1: a++  4
+			// step 2: 5/5=1
+			// 5
+			
+			a=2*5/2;
+			System.out.println(a);
+			//5
+			
+			a=10/5*2;
+			System.out.println(a);
+			//4			
+	}
+}
