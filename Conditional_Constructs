@@ -58,5 +58,34 @@ public class ControlStatement {
 		}	
 		
 	}
+//=================================switch case
+package MyFolder;
 
+public class SwitchCase {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		String choice="raghu";
+		switch(choice)   // jdk 1.7 accept string 
+						// int,char ,string
+		{
+		case "mohan":
+					System.out.println("good person");
+					break;
+		case "raghu":
+					System.out.println("normal person");
+					break;
+		case "gowthaman":
+					System.out.println("teaching person");
+					break;		
+					
+		default:
+					System.out.println("Enter correct person");	
+		
+		}
+	}
+
+}
 
