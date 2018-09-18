@@ -1,0 +1,34 @@
+package datatypes;
+public class A10
+{
+	private int a=10;
+	int b=20; // default  :  only works datatypes package full.
+	protected int c=30; // works datatypes package full + another package derive class only
+	public int d=40;    // works datatypes package full + another package full
+}
+//=====================================================================
+package another;
+import datatypes.*;
+
+class b111 extends A10
+{
+void disp()
+{
+	System.out.println(c);
+	System.out.println(d);
+}
+}
+
+public class Access3 extends A10 
+{
+	public int k=30;
+	
+	public static void main(String args[])
+	{
+		b111 ob2=new b111();
+		System.out.println(ob2.d); // public
+	//	System.out.println(ob2.c); // protected
+			
+	}
+}
+//=======================================================================
