@@ -1,0 +1,62 @@
+package MyFolder;
+import java.util.Scanner;
+public class ControlStatement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*Scanner scan=new Scanner(System.in);
+		System.out.println("Enter No.1");
+		int n1=scan.nextInt();
+		System.out.println("Enter No.2");
+		int n2=scan.nextInt();
+		
+		if(n1>34 && n2>34)   // simple if statement
+		{
+			System.out.println("Pass");
+		}
+		
+		
+		if(n1>34 && n2>34)   // simple if else statement
+		{
+			System.out.println("Pass");
+		}
+		else
+		{
+			System.out.println("Fail");
+		}
+		*/
+		int avg=45;
+		String res="fail";
+		
+		if(res=="pass") // 4.nested if
+			if(avg>=85)  // 3. if else if or ladder or chained (order maintain must -data ascend,descend )
+			{
+			System.out.println("outstanding");
+			}
+			else if(avg>=75)
+			{
+			System.out.println("excellent");
+			}
+			else if(avg>=65)
+			{
+			System.out.println("good");
+			}
+			else if(avg>=50)
+			{
+			System.out.println("fair");
+			}
+			else
+			{
+			System.out.println("participation certificate");
+			}
+		else
+			System.out.println("no grade + fail");
+		
+		
+		
+		
+		}	
+		
+	}
+
+
