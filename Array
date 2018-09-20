@@ -1,0 +1,86 @@
+/*
+	Array:
+		a set of value arranged in sequential of single name variable.
+		
+	use:
+		- not confuse varaibale name - using index
+		- code length reduce
+		- easy to access
+		- default value automatiically set to 0 (if the type int)
+											float - 0.0	
+											String - null
+											
+		array types:
+				1) single dimensional array
+				2) two dimensional array
+				
+				 syntax: single dimensional array (if the get the value from scanner)
+				
+						datatype variablename[]=new datatype[size];
+						
+				ex:
+						int a[]=new int[5];
+						
+						a[0]=34
+						a[1]=77
+						a[2]=99
+						..
+						a[4]=90
+
+			   syntax :single dimensional array assign 
+			   int a[]={44,66,77,88,99,10};
+			   
+			   a[0]=44;
+			   a[1]=66;
+			   a[2]=77;
+			   ............................
+			   
+			   
+	
+ */
+
+package MyFolder;
+import java.util.Scanner;
+public class Array1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int a[]= {22,66,77,99,11,33,44,55,88};
+		
+		int len=a.length;
+		for(int i=0;i<len;i++)
+		{
+			System.out.println(a[i]);
+		}
+		
+		
+		//======================or foreach   use: don't need length, increment.
+		for(int m:a)
+		{
+			System.out.println(m);
+		}
+		
+		// ================ Runtime get value
+		
+		Scanner scan=new Scanner(System.in);
+		System.out.print("Enter array size:");
+		int size=scan.nextInt();
+		int arr[]=new int[size];
+		System.out.println("Enter the array value one by one");
+		for(int i=0;i<size;i++)
+		{
+			arr[i]=scan.nextInt();
+		}
+		System.out.println("\n Result array:\n");
+		for(int m:arr)
+		{
+			System.out.println(m);
+		}
+		scan.close();
+		
+	}
+
+}
+
+
