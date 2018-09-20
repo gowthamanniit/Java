@@ -1,0 +1,127 @@
+package Localization2;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Localization1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+			
+			Date d1=new Date();
+			
+			Locale l1 =new Locale("fr","FR");
+									
+			DateFormat df=DateFormat.getDateInstance(DateFormat.SHORT, l1);
+			
+											// en US
+											// SHORT  09/20/18
+											// FULL   Thursday, Septemper, 20 2018
+											// MEDIUM or defatult sep 20, 2018
+										    // LONG  SEPTEMPER 20, 2018
+			
+											// zh ZH (Chinise)
+											// default: 2018-9-20
+											// short: 18-9-20
+											// LONG: 18?9?20
+			
+				
+			
+											
+			System.out.println(df.format(d1));
+
+			
+			/* Advance how to find all locale
+			 * 
+			 * 			Locale arr[]=DateFormat.getAvailableLocales();
+			 	System.out.println(arr.length);
+				for(Locale a1:arr)
+				{
+					System.out.println(a1);
+				}
+			 */
+	}
+
+}
+
+//==========================================================
+
+package Localization2;
+
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Localization2_Time {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+/*Date d1=new Date();
+		
+		Locale l1 =new Locale("fr","FR");
+								
+		DateFormat df=DateFormat.getDateInstance(DateFormat.SHORT, l1);
+		
+		String ans=df.format(d1);
+		System.out.println(ans);
+		*/
+		// or single line
+		//System.out.println(DateFormat.getDateInstance(DateFormat.FULL,new Locale("en","US")).format(new Date()));
+		
+		Date d1=new Date();
+		Locale l1 =new Locale("en","CA");
+		DateFormat df=DateFormat.getTimeInstance(DateFormat.FULL, l1);
+		String ans=df.format(d1);
+		System.out.println(ans);
+		
+    // get currency instance 
+	
+		//NumberFormat nf=NumberFormat.getCurrencyInstance(l1);
+		NumberFormat nf=NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+		String cur=nf.format(12.56);
+		System.out.println(cur);
+		
+	}
+
+}
+//===============================================================
+localizing Text
+//============================MessageBundle_ta_IN.properties=======(src packge must save)============================
+daddy=appa
+mummy=amma
+come=va
+go=po
+welcome=nalvaravu
+//========================================================================================
+
+package Localization2;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+public class LocalizeText1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Locale.setDefault(new Locale("ta","IN"));
+ResourceBundle rb=ResourceBundle.getBundle("mb");//,new Locale("ta","IN"));
+		
+		System.out.println(rb.getString("daddy"));
+		//========================================
+		Locale.setDefault(new Locale("zn","ZN"));
+		rb=ResourceBundle.getBundle("MessageBundle");//,new Locale("ta","IN"));
+		
+		System.out.println(rb.getString("welcome"));
+		
+		
+		
+	}
+
+}
+//===========================================================
