@@ -1,0 +1,32 @@
+package Localization2;
+class Anand<T>
+{
+	T a;
+	void setA(T a)
+	{
+		this.a=a;
+	}
+	void disp()
+	{
+		System.out.println(a);
+	}
+}
+
+public class GenericClass1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Anand<Integer> ob1=new Anand<Integer>();
+		ob1.setA(45);
+		Anand<Float> ob2=new Anand<Float>();
+		ob2.setA(45.234f);
+		Anand<Double> ob3=new Anand<Double>();
+		ob3.setA(45.234);
+		Anand<String> ob4=new Anand<String>();
+		ob4.setA("sakthi monish");
+		ob1.disp();
+		ob2.disp();
+		ob3.disp();	
+		ob4.disp();
+	}
+}
