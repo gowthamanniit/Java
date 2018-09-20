@@ -1,3 +1,32 @@
+package MyFolder;
+
+// enum use: stored set of constants(do not change)
+
+enum months{january,february,march,april,june,july,august,septemper,october,november,december};
+
+public class Enum1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		//=======================method 1==================
+		months k[]=months.values();
+		for(months a:k)
+		{
+			System.out.println(a);
+		}		
+		//=======================or========================
+		for(months a:months.values())
+		{
+			System.out.println(a);
+		}
+		
+
+	}
+
+}
+
+//=========================== enum constructor =========================================================================================
 package classandobject;
 enum days{sunday(7),monday(1),tuesday(2),wednesday(3),thursday(4),friday(5),saturday(6);
 	int s;
