@@ -83,4 +83,111 @@ public class Array1 {
 
 }
 
+// two dimensional array
+
+/*
+	Array:
+		a set of value arranged in sequential of single name variable.
+		
+	use:
+		- not confuse varaibale name - using index
+		- code length reduce
+		- easy to access
+		- default value automatiically set to 0 (if the type int)
+											float - 0.0	
+											String - null
+											
+		array types:
+				1) single dimensional array
+				2) two dimensional array
+				
+				 syntax: single dimensional array (if the get the value from scanner)
+				
+						datatype variablename[][]=new datatype[row size][col size2;
+						
+				ex:
+						int a[][]=new int[2][3];
+						
+						
+						a[0][0]=44
+						a[0][1]=66
+						a[0][2]=77
+						a[1][0]=88
+						a[1][1]=99
+						a[1][2]=10
+												
+			   syntax :single dimensional array assign 
+			   int a[][]={{44,66,77},{88,99,10}};
+			   
+			   			a[0][0]=44
+						a[0][1]=66
+						a[0][2]=77
+						a[1][0]=88
+						a[1][1]=99
+						a[1][2]=10
+ */
+
+package MyFolder;
+import java.util.Scanner;
+public class Array1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int a[][]={{44,66,77},{88,99,10}};
+		
+		int len=a.length;  // 2 rows
+		int col= a[0].length; // 3 cols
+		
+		System.out.println(len+"  "+col);
+		for(int i=0;i<2;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print("  "+a[i][j]);
+		}
+			System.out.println();
+		}
+		
+		
+		//======================or foreach   use: don't need length, increment.
+		for(int m[]:a)  // step 1: 44 66 77 --> m[] step: 5 88 99 10 --> m[]   
+		{
+			for(int k:m)   // step 2:  k= 44 step 3 : k =66 step 4: k=77       ||  step 6: k=88 k=99 k =10
+			{
+			System.out.print(" "+k);
+			}
+			System.out.println();
+		}
+		
+		// ================ Runtime get value
+		
+		Scanner scan=new Scanner(System.in);
+		System.out.print("Enter array r size:");
+		int rsize=scan.nextInt();
+		System.out.print("Enter array c size:");
+		int csize=scan.nextInt();
+		int arr[][]=new int[rsize][csize];
+		System.out.println("Enter the array value one by one");
+		for(int i=0;i<rsize;i++)
+		{
+			for(int j=0;j<csize;j++)
+			{
+				arr[i][j]=scan.nextInt();
+			}
+		}
+		System.out.println("\n Result array:\n");
+		for(int m[]:arr)  // step 1: 44 66 77 --> m[] step: 5 88 99 10 --> m[]   
+		{
+			for(int k:m)   // step 2:  k= 44 step 3 : k =66 step 4: k=77       ||  step 6: k=88 k=99 k =10
+			{
+			System.out.print(" "+k);
+			}
+			System.out.println();
+		}
+		scan.close();
+		
+	}
+
+}
 
