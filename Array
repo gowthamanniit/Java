@@ -85,21 +85,7 @@ public class Array1 {
 
 // two dimensional array
 
-/*
-	Array:
-		a set of value arranged in sequential of single name variable.
-		
-	use:
-		- not confuse varaibale name - using index
-		- code length reduce
-		- easy to access
-		- default value automatiically set to 0 (if the type int)
-											float - 0.0	
-											String - null
-											
-		array types:
-				1) single dimensional array
-				2) two dimensional array
+2) two dimensional array
 				
 				 syntax: single dimensional array (if the get the value from scanner)
 				
