@@ -25,6 +25,39 @@ public class Enum1 {
 	}
 
 }
+//===========================enum constructor ==============================================
+package MyFolder;
+
+// enum constructor
+
+enum pricefixed{pottukadalai(70),rice1(60),rice2(50),rice3(40),sugar(35);
+	
+	int p;
+	pricefixed(int k)
+	{
+		p=k;
+	}	
+	int disp()
+	{
+		return p;
+	}
+	
+};
+
+public class Enum1 {	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		pricefixed o=pricefixed.pottukadalai;
+		System.out.println(o.disp());
+		
+		pricefixed o2=pricefixed.sugar;
+		System.out.println(o2.disp());
+
+	}
+}
+
 
 //=========================== enum constructor =========================================================================================
 package classandobject;
