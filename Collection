@@ -1,0 +1,364 @@
+package COllection;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class HashSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	HashSet<String> hs=new HashSet<String>();
+		
+		hs.add("monish");
+		hs.add("sathis");
+		hs.add("monish");
+		hs.add("abi");
+		hs.add("sudhan");
+		hs.add("gowhaman");
+		hs.add("damu");
+		
+		hs.add("sudhan");
+		
+		System.out.println(hs);
+	
+		TreeSet<String> ts=new TreeSet<String>();
+		
+		ts.add("monish");
+		ts.add("sudhan");
+		ts.add("gowhaman");
+		ts.add("monish");
+		ts.add("sudhan");
+		ts.add("abi");
+		ts.add("damu");
+		ts.add("sathis");
+		System.out.println(ts);
+		TreeSet<Number> ts1=new TreeSet<Number>();
+		ts1.add(34);
+		ts1.add(44);
+		ts1.add(14);
+		ts1.add(24);
+		ts1.add(14);
+		ts1.add(24);
+		ts1.add(53);
+		
+		
+		System.out.println(ts1);
+	
+	
+		System.out.println(hs.size());
+		System.out.println(ts.size());
+		System.out.println(ts1.size());
+		
+		ts1.clear();
+		
+		System.out.println(ts1.size());
+		
+		if(hs.remove("abi"))
+		{
+			System.out.println("successfully removed abi");
+		}
+		else
+		{
+			System.out.println("not removed abi");
+		}
+		
+		System.out.println(hs.size());
+		System.out.println(hs);
+		
+		}
+	
+	}
+
+
+//=========================================================================================================
+
+package COllection;
+import java.util.HashSet;
+import java.util.Iterator;
+class AnandSudhan
+{
+	String name;
+	int mark;
+	public AnandSudhan(String name,int mark)
+	{
+		this.name=name;
+		this.mark=mark;
+	}
+	
+}
+public class HashSetAdvance {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AnandSudhan ob1=new AnandSudhan("anand",95);
+		AnandSudhan ob2=new AnandSudhan("sudhan",92);
+		AnandSudhan ob3=new AnandSudhan("gowtham",91);
+		
+		HashSet<AnandSudhan> hs1=new HashSet<AnandSudhan>();
+		
+		hs1.add(ob1);
+		hs1.add(ob2);
+		hs1.add(ob3);
+		
+		System.out.println(hs1.size());
+		
+		System.out.println(hs1);
+		
+		//hs1.remove(ob2);
+		
+		System.out.println(hs1.size());
+		
+		//hs1.clear();
+		
+	   Iterator<AnandSudhan> i1=hs1.iterator();
+		
+	   while(i1.hasNext())
+	   {
+		   AnandSudhan o=i1.next();
+		   System.out.println(o.name + "  "+ o.mark);
+	   }
+		
+		
+		
+		
+	}
+
+}
+//========================================================================================================
+
+/*package COllection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+public class ArrayList1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<Integer> al=new ArrayList<Integer>();
+		
+		al.add(11);
+		al.add(22);
+		al.add(11);
+		al.add(22);
+		al.add(33);
+		al.add(44);
+		al.add(33);
+		
+		System.out.println(al);
+		
+		System.out.println(al.size());
+		
+		System.out.println(al.get(0));
+		
+		System.out.println(al.remove(0));
+		
+		System.out.println(al);
+		
+		//al.clear();
+		
+		//System.out.println(al);
+		
+		//al.remove(obj);
+
+		System.out.println(al);
+		
+		
+		Iterator<Integer> i1=al.iterator();
+		// display all elements invidual
+		while(i1.hasNext())  // check elements found or not in array list// no need size
+		{
+			System.out.print("  "+i1.next());
+		}
+		
+		ListIterator<Integer> i2=al.listIterator();  // both direction (next,prev)
+		
+		for(int i=0;i<al.size()-1;i++)
+		{
+			System.out.println(i2.next());		
+		}
+		
+		System.out.println(" last  ="+i2.next());
+		
+		// reverse
+		
+		while(i2.hasPrevious())
+		{
+			
+			System.out.println(" pre "+i2.previous());
+		}
+		
+	
+	}
+	
+
+		
+	}
+
+
+*/
+
+/*
+package COllection;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.ListIterator;
+public class ArrayList1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedList<Integer> al=new LinkedList<Integer>();
+		
+		al.add(11);
+		al.add(22);
+		al.add(11);
+		al.add(22);
+		al.add(33);
+		al.add(44);
+		al.add(33);
+		
+		al.add(null);
+		al.add(null);
+		
+		
+		al.addFirst(100);  /// not available in array list
+		al.addLast(300);  // array list defaultly added at last
+		al.add(4, 500);
+		System.out.println(al);
+		
+		System.out.println(al.size());
+		
+		System.out.println(al.get(0));
+		
+		System.out.println(al.remove(0));
+		
+		System.out.println(al);
+		
+		//al.clear();
+		
+		//System.out.println(al);
+		
+		//al.remove(obj);
+
+		System.out.println(al);
+		
+		
+		Iterator<Integer> i1=al.iterator();
+		// display all elements invidual
+		while(i1.hasNext())  // check elements found or not in array list// no need size
+		{
+			System.out.print("  "+i1.next());
+		}
+		
+		ListIterator<Integer> i2=al.listIterator();  // both direction (next,prev)
+		
+		for(int i=0;i<al.size()-1;i++)
+		{
+			System.out.println(i2.next());		
+		}
+		
+		System.out.println(" last  ="+i2.next());
+		
+		// reverse
+		
+		while(i2.hasPrevious())
+		{
+			
+			System.out.println(" pre "+i2.previous());
+		}
+		
+	
+	}
+	
+
+		
+	}
+
+*/
+
+package COllection;
+import java.util.Vector;
+import java.util.Iterator;
+import java.util.ListIterator;
+public class ArrayList1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Vector<Integer> al=new Vector<Integer>();
+		
+		al.add(11);
+		al.add(22);
+		al.add(11);
+		al.add(22);
+		al.add(33);
+		al.add(44);
+		al.add(33);
+		
+		al.add(null);
+		al.add(null);
+		
+		
+		// al.addFirst(100);  /// not available in array list and vector
+		// al.addLast(300);  // array list defaultly added at last and vector
+		al.add(4, 500);
+		
+		System.out.println(al.firstElement());
+		
+		System.out.println(al.lastElement());
+		
+		al.set(1, 222);  // update 
+		
+		System.out.println(al);
+		
+		System.out.println(al.size());
+		
+		System.out.println(al.get(0));
+		
+		System.out.println(al.remove(0));
+		
+		System.out.println(al);
+		
+		//al.clear();
+		
+		//System.out.println(al);
+		
+		//al.remove(obj);
+
+		System.out.println(al);
+		
+		
+		Iterator<Integer> i1=al.iterator();
+		// display all elements invidual
+		while(i1.hasNext())  // check elements found or not in array list// no need size
+		{
+			System.out.print("  "+i1.next());
+		}
+		
+		ListIterator<Integer> i2=al.listIterator();  // both direction (next,prev)
+		
+		for(int i=0;i<al.size()-1;i++)
+		{
+			System.out.println(i2.next());		
+		}
+		
+		System.out.println(" last  ="+i2.next());
+		
+		// reverse
+		
+		while(i2.hasPrevious())
+		{
+			
+			System.out.println(" pre "+i2.previous());
+		}
+		
+	
+	}
+	
+
+		
+	}
+
+
