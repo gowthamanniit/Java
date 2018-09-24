@@ -1,0 +1,83 @@
+package Inheritance1;
+
+class AAA 
+{
+	void display()  // implement or unimplement in derive class.
+	{
+		System.out.println("class method with body");
+	}
+}
+interface Father
+{
+	int a=100; // use var in derive class both father and mother method
+	void car();  // must use in derive class. (override)
+	void bike();
+	// static void dis(); // static_method not allowed interface
+						// only abstact or public methoed permitted
+	abstract void dis(); //abstract method allowed 
+}
+interface Mother extends Father  // one interface extends another interface
+{
+	int b=200;  // cannot change derive class 
+	final int c =300; //b or c same (final)
+	// static int d; // error must initialize
+	static int d=10;
+	final static int e=20;
+	static final int f=30;
+	//public Mother()   // cannot create constructor to interface
+	//{
+		
+	//}
+	void cycle();
+	public void van(); // public not must when declaration(base).
+}
+
+class son extends AAA  implements Father,Mother
+{
+	public void car()  // public is must in derive class interface method
+	{
+		// b=1000;  // dont reinitialze interface variablename. (final)
+		System.out.println("interface car"+b);
+	}
+	public void cycle()
+	{
+		System.out.println("interface cycle"+a);
+		// c=c+10; // dont re initialize
+		//d=d+10;
+		System.out.println("interface cycle"+c);
+	}
+	public void bike() 
+	{
+		System.out.println("interface bike");
+	}
+	public void van()
+	{
+		System.out.println("interface van");
+	}
+
+	public void dis() {
+		
+		System.out.println("a = "+a +"  b="+b +"f =  "+f+"  e = "+e);
+	}
+}
+
+
+public class InterfaceConcepts {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		son ob=new son();
+		ob.bike();
+		ob.car();
+		ob.cycle();
+		ob.van();
+		ob.display();
+		ob.dis();
+
+		Father ob1;
+		// new Father();  // cannot create instance to interface
+		
+	}
+
+}
