@@ -1,3 +1,13 @@
+collections:
+===============
+
+Set - HashSet,TreeSet
+List - ArrayList,LinkedList,Vector
+Map-HashMap,TreeMap,HashTable
+Deque-ArrayDeque
+=======================
+
+
 package COllection;
 
 import java.util.HashSet;
@@ -354,11 +364,154 @@ public class ArrayList1 {
 			System.out.println(" pre "+i2.previous());
 		}
 		
+		//=================================map========================================================
+		/*
+ 
+ HashMap --> key -> null, value-> null, <key ,value> = null
+ 		 --> any order
+ TreeMap --> key--> must , value = null
+ 		 --> ascending order
+ Hashtable --> null dont accpet
+ 		 --> andy order
+ 
+ 
+ */
+
+
+package COllection;
+
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class Collections_Map {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		HashMap<String, Integer> s1=new HashMap<String,Integer>();
+		
+		s1.put("anand", 25);
+		s1.put("sudhan", 22);
+		s1.put("monish", 21);
+		s1.put("sakthi", 24);
+		s1.put("gowthaman", 37);
+		s1.put("gowthaman", 37);  // duplicate avoid
+		s1.put(null,null);  // hashmap accept always null values
+		s1.put(null,null);  // duplicate avoid
+		s1.put(null, 23);
+		s1.put("sugu", null);
+		System.out.println(s1); // store to any order
+		*/
+		// workout get,clear,size,remove
+		
+		
+		TreeMap<String, Integer> s1=new TreeMap<String,Integer>();
+		
+		s1.put("anand", 25);
+		s1.put("sudhan", 22);
+		s1.put("monish", 21);
+		s1.put("sakthi", 24);
+		s1.put("gowthaman", 37);
+		s1.put("gowthaman", 37);  // duplicate avoid
+		//s1.put(null,null);  // Treemap not accept null
+		//s1.put(null,null);  // 
+		s1.put("raj", null);  // value null accpet
+		s1.put("raj", null);  // value null accpet
+		//s1.put(null, 33);  // key null not accpet
+		System.out.println(s1); // store to ascending order
+
+		System.out.println(s1.get("sakthi"));
+		
+		for(String s:s1.keySet())
+		{
+			System.out.println(s+"  -->  "+s1.get(s));
+		}
+		
+		/*
+		 Hashtable<String, Integer> s1=new Hashtable<String,Integer>();
+		 
+		
+		s1.put("anand", 25);
+		s1.put("sudhan", 22);
+		s1.put("monish", 21);
+		s1.put("sakthi", 24);
+		s1.put("gowthaman", 37);
+		s1.put("gowthaman", 37);  // duplicate avoid
+								// don't accept null it mey key,value
+		System.out.println(s1); // store to any order
+		
+		*/
+		
+		
+		
+		
+	}
+
+}
+
+		
 	
 	}
 	
 
 		
 	}
+//=======================================================================4.deque ================================
+
+package COllection;
+import java.util.ArrayDeque;
+
+import java.util.Iterator;
+class DequeInter {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayDeque<Integer> ad=new ArrayDeque<Integer>();
+		
+		ad.add(new Integer(13));
+		ad.add(24); 
+		ad.add(95);
+		ad.add(16);
+		ad.addFirst(120);
+
+		
+		
+		System.out.println(ad);
+		
+		
+		ad.addLast(100);
+		
+		System.out.println(ad);
+
+		ad.removeFirst();
+		System.out.println(ad);
+
+		ad.removeLast();
+		System.out.println(ad);
+
+		ad.remove();
+		System.out.println(ad);
+		
+		ad.remove(45);
+		System.out.println(ad);
+		
+		System.out.println(ad.getFirst());
+		System.out.println(ad.getLast());	
+		
+		
+		Iterator<Integer>  it=ad.iterator();
+		
+		while(it.hasNext())
+		System.out.println(it.next());
+		
+		
+		
+		
+	}
+
+}
+
 
 
