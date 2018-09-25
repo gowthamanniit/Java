@@ -20,3 +20,23 @@ assert (age>30) && (age<=100):"pass your error names";
 
 compile: javac AssertKey.java
 run: java -ea AssertKey  // -ea enable assert
+
+//=====================================
+	
+	import java.util.Scanner;		
+	class AssertKey
+	{
+
+	public static void main(String args[])
+	{
+		
+	Scanner scan=new Scanner(System.in);
+	System.out.println("Enter Your Age:");
+
+	int age=scan.nextInt();
+	
+	assert(!(age<18 || age>100)):"age enter only 18 to 100";
+
+	System.out.println("age accepted");
+	}
+	}
