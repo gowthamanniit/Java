@@ -1,0 +1,65 @@
+//1.Thead Class
+
+package Thread1;
+class A extends Thread
+{
+	public void run()
+	{
+		try
+		{
+		for(int i=1;i<=10;i++)
+		{
+		System.out.println("Thread A "+i);
+		Thread.sleep(2000);
+		}
+		}
+		catch(Exception e){}
+	}
+}
+
+class B extends Thread
+{
+	public void run()
+	{ 
+		
+		
+		try
+		{
+		for(int i=1;i<=10;i++)
+		{
+		System.out.println("Thread B "+i);
+		Thread.sleep(1000);
+		}
+		}
+		catch(Exception e){}
+	}	
+}
+
+public class ThreadRunnable 
+{
+	public static void main(String[] args) throws Exception
+	{
+		/*
+		int i;
+		for(i=1;i<=20;i++)
+		{
+			System.out.print(" "+i);
+			Thread.sleep(1000);
+		}*/
+		
+		
+		A ob=new A();
+		Thread t1=new Thread(ob);
+		
+		
+		B ob1=new B();
+		Thread t2=new Thread(ob1);
+		
+		
+		t1.start();
+		//t1.join();
+		t2.start();
+		
+	}
+}
+//============runnable interface =============================
