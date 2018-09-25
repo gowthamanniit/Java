@@ -1,0 +1,103 @@
+package SimpleBasic;
+// purpose of using static/early/compile time polymorphism
+// end user avoid confusion
+
+// no. of signature: def: fixing 
+
+// 1. no. of args 2. arrangement of args 3. datatype specification
+
+public class OverLoadingCOmpileTime {
+	void calc(int a)
+	{
+		System.out.println("Integer = "+a);
+	}
+	void calc(float b)
+	{
+		System.out.println("Float = "+b);
+	}
+	void calc(double c)
+	{
+		System.out.println("Double = "+c);
+	}
+	void calc(int a,int b)
+	{
+		System.out.println("2 Integer = "+a+"  "+b);
+	}
+	void calc(float a,float b)
+	{
+		System.out.println("2 Float = "+a+"  "+b);
+	}
+	void calc(float a,int b)
+	{
+		System.out.println("1 Float 1 Int :"+a+" "+b);
+	}
+	
+	public static void main(String g[])
+	{
+		OverLoadingCOmpileTime ob=new OverLoadingCOmpileTime();
+		ob.calc(22);
+		ob.calc(23.324);
+		ob.calc(22.345f);
+		//ob.calc(" dsajfdslkfj asdlkfja s");   // compile time error so compile time polymor
+	}
+}
+
+//=============================== overriding======================================
+
+package SimpleBasic;
+
+
+abstract class Mohan
+{
+	int k=20;
+	abstract void disp(); // only declaration..       dont do that {}
+	final int m=20;
+	void kavitha()
+	{
+		System.out.println("normal method inside abstract class");
+	}
+}
+
+class Sathis extends Mohan
+{
+	void disp()
+	{
+		k=k+20;
+		
+		System.out.println("abstract method - overriding"+k+" "+m);
+	}
+	void kavitha()
+	{
+		super.kavitha();
+		System.out.println("some text over ride");
+	}
+}
+
+
+public class AcccessModifier {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Mohan obj=new Mohan(); // dont create object to abstract class.
+		
+		Sathis ob=new Sathis();
+		ob.disp();
+		ob.kavitha(); // dont call abstract class normal method
+		
+		
+		//=======================================
+		final int k=10;  // constant dont change
+		
+		System.out.println(k);
+		
+		// k++;  k=k+10;  k=10    
+		
+		System.out.println(k);
+		
+	}
+
+}
+
+
