@@ -49,6 +49,67 @@ public class ThreadRunnable
 		
 		
 		A ob=new A();
+		
+		
+		
+		B ob1=new B();
+		
+		
+		
+		ob.start();
+		//ob.join();
+		ob1.start();
+		
+	}
+}
+//============runnable interface =============================
+package Thread1;
+class A implements Runnable
+{
+	public void run()
+	{
+		try
+		{
+		for(int i=1;i<=10;i++)
+		{
+		System.out.println("Thread A "+i);
+		Thread.sleep(2000);
+		}
+		}
+		catch(Exception e){}
+	}
+}
+
+class B implements Runnable
+{
+	public void run()
+	{
+		try
+		{
+		for(int i=1;i<=10;i++)
+		{
+		System.out.println("Thread B "+i);
+		Thread.sleep(1000);
+		}
+		}
+		catch(Exception e){}
+	}	
+}
+
+public class ThreadRunnable 
+{
+	public static void main(String[] args) throws Exception
+	{
+		/*
+		int i;
+		for(i=1;i<=20;i++)
+		{
+			System.out.print(" "+i);
+			Thread.sleep(1000);
+		}*/
+		
+		
+		A ob=new A();
 		Thread t1=new Thread(ob);
 		
 		
@@ -62,4 +123,3 @@ public class ThreadRunnable
 		
 	}
 }
-//============runnable interface =============================
