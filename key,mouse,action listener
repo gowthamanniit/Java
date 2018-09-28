@@ -1,0 +1,189 @@
+package com.niit;
+import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+
+public class LoginPage extends JFrame implements ActionListener,KeyListener,MouseListener,MouseMotionListener {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPasswordField passwordField;
+	private JLabel lblHrSystem;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginPage frame = new LoginPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public LoginPage() {
+		setTitle("All Events Example");
+		//setUndecorated(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 500, 400);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+	     lblHrSystem = new JLabel("HR SYSTEM");
+		lblHrSystem.setBounds(186, 29, 95, 24);
+		contentPane.add(lblHrSystem);
+		
+		JLabel lblUname = new JLabel("Uname");
+		lblUname.setBounds(30, 88, 46, 14);
+		contentPane.add(lblUname);
+		
+		textField = new JTextField();
+		textField.setBounds(122, 85, 108, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblPass = new JLabel("Pass");
+		lblPass.setBounds(30, 164, 46, 14);
+		contentPane.add(lblPass);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				
+			}
+		});
+		btnLogin.setBounds(104, 215, 89, 23);
+		contentPane.add(btnLogin);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.setBounds(223, 215, 89, 23);
+		contentPane.add(btnReset);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(122, 161, 108, 20);
+		passwordField.setEchoChar('$');
+		contentPane.add(passwordField);
+		btnLogin.addActionListener(this);
+		textField.addKeyListener(this);
+		addMouseListener(this);
+		addMouseMotionListener(this);
+		addWindowListener(new aaaa());
+	}
+	public class aaaa extends WindowAdapter
+	{
+		public void windowClosing(WindowEvent we)
+		{
+		JOptionPane.showMessageDialog(null, "good bye");
+		
+		}
+	}
+	/*public void windowOpening(WindowEvent we)
+	{
+		System.out.println("opening");
+	}
+	public void windowOpened(WindowEvent we)
+	{
+		System.out.println("opened");
+	}
+	public void windowActivated(WindowEvent we)
+	{
+		System.out.println("activated");
+	}
+	public void windowDeactivated(WindowEvent we)
+	{
+		System.out.println("deactivated");
+	}
+	public void windowClosing(WindowEvent we)
+	{
+		System.out.println("closing");
+	}
+	public void windowClosed(WindowEvent we)
+	{
+		System.out.println("closed");
+	}
+	public void windowIconified(WindowEvent we)
+	{
+		System.out.println("iconified");
+	}
+	public void windowDeiconified(WindowEvent we)
+	{
+		System.out.println("deiconified");
+	}
+	*/
+	public void mouseDragged(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse dragged");
+	}
+	public void mouseMoved(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse moved");
+	}
+	
+	public void mousePressed(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse Pressed");
+	}
+	public void mouseReleased(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse Released");
+	}
+	public void mouseExited(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse Exited");
+	}
+	public void mouseEntered(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse Entered");
+	}
+	public void mouseClicked(MouseEvent me)
+	{
+		lblHrSystem.setText("mouse Clicked");
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		//JOptionPane.showMessageDialog(null, "Login Button Clicked");
+		System.exit(0);
+	}
+	public void keyPressed(KeyEvent ke)
+	{
+		
+	}
+	public void keyReleased(KeyEvent ke)
+	{
+		textField.setText(textField.getText().toUpperCase());
+		if(!((ke.getKeyChar()>='a' && ke.getKeyChar()<='z')||(ke.getKeyChar()>='A' && ke.getKeyChar()<='Z')))   
+		{
+			textField.setText("");
+		}
+	}
+	public void keyTyped(KeyEvent ke)
+	{
+		textField.setText(textField.getText().toUpperCase());
+		//System.out.print(ke.getKeyChar());
+		if(!((ke.getKeyChar()>='a' && ke.getKeyChar()<='z')||(ke.getKeyChar()>='A' && ke.getKeyChar()<='Z')))
+		{
+			textField.setText("");
+		}
+	}
+}
