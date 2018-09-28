@@ -1,0 +1,26 @@
+	Scanner scan=new Scanner(System.in);
+		Random ob=new Random();
+		int ran_num,user_num;
+		int i=0;
+		do
+		{			
+		do
+		{
+		ran_num=ob.nextInt(99999);
+		}
+		while((ran_num>=0 && ran_num<=89999));
+		System.out.println("computer assuemed one no. from 201 to 210 \n Enter your choice");
+		user_num=scan.nextInt();
+		
+		if(ran_num==user_num)
+		{
+			System.out.println("you win success after tries "+ ++i+" times");
+			break;
+		}
+		else
+		{
+			System.out.println("Computer thinked number:"+ran_num+" you failed "+ ++i+"attempts");
+		}
+		}
+		while(ran_num!=user_num);
+	
