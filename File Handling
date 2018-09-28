@@ -1,0 +1,81 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.*;
+import java.io.FileOutputStream;
+public class FileHand1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		File f1=new File("d:/123.txt");
+		String s="";
+		if(f1.exists())
+		{
+			System.out.println("path available");
+			if(f1.isDirectory())
+				System.out.println("path is folder");
+			if(f1.isFile())
+			{
+				try
+				{
+				FileInputStream fis=new FileInputStream(f1);
+				for(int i=0;i<f1.length();i++)
+				{
+				//System.out.print((char)fis.read());
+					s=s+(char)fis.read();
+				}
+				fis.close();
+				}
+				catch(Exception e)
+				{
+					System.out.println("Error");
+				}
+				
+				Scanner scan=new Scanner(System.in);
+				System.out.println("Enter Your Text to be write in file:");
+				String text=scan.nextLine();
+				text=s+text;
+				byte v[]=new byte[text.length()];
+				v=text.getBytes();
+				try
+				{
+				FileOutputStream fos=new FileOutputStream(f1);
+				fos.write(v);
+				fos.close();
+				}
+				catch(Exception e)
+				{
+					System.out.println("Error name:"+e.toString());
+				}
+				scan.close();
+				
+				
+				
+			/*System.out.println("path is file");
+			System.out.println("length :"+f1.length());
+			System.out.println("can read:"+f1.canRead());
+			System.out.println("can write:"+f1.canWrite());
+			System.out.println("file hidden:"+f1.isHidden());
+			f1.setWritable(true);
+			System.out.println("can write:"+f1.canWrite());
+			try
+			{
+			FileInputStream fis=new FileInputStream(f1);
+			for(int i=0;i<f1.length();i++)
+			{
+			System.out.print((char)fis.read());	
+			}
+			fis.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Error");
+			}*/
+			}
+		}
+		else
+		{
+			System.out.println("not available");
+		}
+	}
+
+}
