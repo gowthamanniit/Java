@@ -1,0 +1,30 @@
+
+		import java.sql.*;
+		
+		class Database1
+		{
+			public static void main(String args[])
+			{
+				try
+				{
+				Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+				Connection con=DriverManager.getConnection("JDBC:ODBC:anand","","");
+				Statement st=con.createStatement();
+				ResultSet rs=st.executeQuery("select * from details");
+
+					while(rs.next())
+					{
+						System.out.println(" "+rs.getInt(1) + " "+rs.getString(2)+"  "+rs.getInt(3));
+	
+					}				
+					rs.close();
+					st.close();
+					con.close();
+
+				}
+				catch(Exception e)
+				{
+					System.out.println("database error :"+e.toString());
+				}	
+			}
+		}
