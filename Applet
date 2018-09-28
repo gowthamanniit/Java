@@ -1,0 +1,69 @@
+	
+	/*
+	<applet code="SimpleApp" width="700" height="700"></applet>
+	*/
+
+	import java.applet.*; // window show
+	import java.awt.*; // tools or components
+
+	enum months{january,february,march,april,may,june,july,august,september,october,november,december};		
+
+	public class SimpleApp extends Applet
+	{
+		public void init()
+		{
+			Label l1=new Label("Enter Your Name:");
+
+			add(l1);	
+			
+			TextField  t1=new TextField(20);
+			t1.setEchoChar('@');	
+			add(t1);
+
+
+			Button b1=new Button("ClickeMe");
+			add(b1);
+
+
+			Choice c1=new Choice();
+			/*c1.addItem("jan");
+			c1.addItem("feb");
+			c1.addItem("mar");
+			c1.addItem("apr");
+			c1.addItem("may");
+			c1.addItem("jun");
+			c1.addItem("jul");
+			c1.addItem("aug");
+			c1.addItem("sep");*/
+
+			for(months m1:months.values())
+			{
+			c1.addItem(String.valueOf(m1));
+			}
+			add(c1);
+
+
+
+			List li=new List();
+			li.addItem("c");
+			li.addItem("c++");
+			li.addItem("java");
+			li.addItem("vb");
+			li.addItem("sql");
+			li.addItem(".net");
+			li.addItem("php");
+			add(li);
+
+
+			Checkbox cb1=new Checkbox("c");
+			Checkbox cb2=new Checkbox("c++");
+			Checkbox cb3=new Checkbox("java");
+			add(cb1);add(cb2);add(cb3);
+
+
+				
+
+
+		}
+	}
+	
