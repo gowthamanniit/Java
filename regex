@@ -1,3 +1,66 @@
+package com.niit;
+import java.util.regex.*;
+import java.util.*;
+public class RegEx1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner scan=new Scanner(System.in);
+System.out.println("Enter text:");
+String input=scan.next();
+
+		// method 1
+		//boolean ans=Pattern.matches("[a-z]{1,4}", input); 
+
+		// method 2
+		
+		//Pattern p=Pattern.compile("..s");
+		//Matcher m=p.matcher(input);
+		//boolean ans=m.matches();
+
+		//method 3
+
+		//boolean ans= Pattern.compile("..s").matcher(input).matches();
+		
+		// method 4
+
+input="";
+		 Matcher m=Pattern.compile("[a-z]+").matcher(input);
+		 if(m.matches()==true)
+		 		 System.out.println("correct input "+input);	
+		 else
+			 	System.out.println("wrong input "+input);
+		
+		/* 
+
+		if(ans==true)
+			System.out.println("correct input "+input);
+		else
+			System.out.println("wrong input "+input);
+	*/
+	scan.close();
+	}
+}
+// regex formats
+// .s    total 2 char's'  first char any , second char must s.
+//..s    first 2 char any + 3 char must be s char.
+//[a-z]  only one char small a to small z
+//[abc]  only one a to c
+//[a-z]* zero or maximum more but a to z
+//[a-z]{4} must be 4 char fixed (a to z)
+//[a-z]{4,} min - 4 max : dont count.
+//[a-z]{1,5} min 1 max 5
+//[A-Za-z]*  smll+caps both one or more
+//[A-Za-z0-9]* samll+caps+number one or more
+//[^A-Za-z0-9]*  except small+caps+number one or more 
+			// or only taken special char
+//[a-d[s-x]]  // only one char taken a to d or s to x
+//[a-z&&[s-x]]  // && interseciton - common char only one.
+//[a-z&&[^s-x]] //  ,,                 except s to x only one char.
+//[abc]*  zero or more chars (abc only ex: aaaaa abcabcabc )
+//[abc]+  atleast one or more char   (do not give empty)
+// 
+//==========================================================================================================
 package CastingObjects;
 
 import java.util.regex.Matcher;
