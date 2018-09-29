@@ -1,3 +1,45 @@
+======================================notes about swing=================================
+
+swing
+
+ is a part of Java Foundation Classes (JFC) 
+that is used to create window-based applications.
+
+javax.swing package provides classes for java swing API 
+such as JButton, JTextField, JTextArea, JRadioButton, JCheckbox, JMenu, JColorChooser etc.
+
+Java swing components are platform-independent.
+
+lightweight.
+
+Swing follows MVC.
+
+ where model represents data,
+ view represents presentation and
+ controller acts as an interface between model and view.
+
+
+public void add(Component c)	add a component on another component.
+public void setSize(int width,int height)	sets size of the component.
+public void setLayout(LayoutManager m)	sets the layout manager for the component.
+public void setVisible(boolean b)	sets the visibility of the component. It is by default false.
+
+
+
+Java Swing Examples
+There are two ways to create a frame:
+
+By creating the object of Frame class (association)
+By extending Frame class (inheritance)
+We can write the code of swing inside the main(), constructor or any other method.
+
+import library for accessing gui compponents
+
+import javax.swing.*;
+
+//===================================================================================================================
+
+
 JList  + defaultListModel
 =====
 	
