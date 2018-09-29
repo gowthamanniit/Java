@@ -1,0 +1,20 @@
+JList  + defaultListModel
+=====
+	
+  JList<String> list;
+	DefaultListModel<String> dlm=new DefaultListModel<String>();   // dynamically addded values using addelement method.
+		dlm.addElement("january");
+		dlm.addElement("february");
+		list= new JList<String>(dlm);
+	
+  //===========2 method  (only static)==========================
+  
+  JList + Array any type
+   ====================
+  JList<String> list;
+  Stirng values[]=new String[]{"dsafsd","asdfasd","asdfasd"};
+	list= new JList<String>(values);
+  
+  
+	 
+   
