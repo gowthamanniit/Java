@@ -1,0 +1,31 @@
+
+package database;
+import java.sql.*;
+public class SqlCon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try
+		{
+			// using odbc connection
+			
+			//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			String url="jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=Angu1";
+			Connection con=DriverManager.getConnection(url,"sa","12345");
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery("select * from details");
+			while(rs.next())
+			{
+				System.out.println(" "+rs.getInt(1)+" "+rs.getString(2)+"  "+rs.getInt(3));
+			}
+			rs.close();
+			st.close();
+			con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error :"+e.toString());
+		}	
+	}
+}
