@@ -298,3 +298,42 @@ import java.sql.*;
 		
 	}
 }
+// ===========================================database search regno using where sql query ================
+		rno=Integer.parseInt(textregno.getText());
+		try
+		{
+		Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		Connection con=DriverManager.getConnection("JDBC:ODBC:anand","","");
+		Statement st=con.createStatement();
+		
+		ResultSet rs=st.executeQuery("select regno from details where regno="+rno);
+		if(rs.next()==true)
+			JOptionPane.showMessageDialog(null, "regno found in database");
+		else
+			JOptionPane.showMessageDialog(null, "the given regno:"+rno+" is not found");
+		}
+		catch(Exception e){}
+//==============================================database search regno using select * from tablename=======================
+
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		Connection con=DriverManager.getConnection("JDBC:ODBC:anand","","");
+		Statement st=con.createStatement();
+		
+		ResultSet rs=st.executeQuery("select * from details");
+		boolean check=false;
+		int k=0;
+		while(rs.next())
+		{
+			if(rs.getInt(3)==mark)  // use name: rs.getString(2) , regno:rs.getInt(1)
+			{
+				check=true;
+				++k;
+			}
+		}
+		
+		if(check==true)
+			JOptionPane.showMessageDialog(null, "total rows :"+k);
+		else
+			JOptionPane.showMessageDialog(null, "tota rows : 0 not found");
+		
+	//=========================================================================================
