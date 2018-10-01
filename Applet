@@ -67,3 +67,52 @@
 		}
 	}
 	
+	//======================================
+	
+package Summa;
+
+import java.applet.*;
+import java.awt.*;
+enum months{january,february,march,april,may,june,july,august,september,october,november,december};
+
+public class SimpleApp extends Applet{
+	
+	public void init()
+	{
+		setLayout(null);
+		
+		Font f1=new Font("Arial",Font.BOLD,25); // common
+		setForeground(Color.blue);
+		setBackground(Color.pink);
+		Label title=new Label("NIIT Application Form");
+		title.setBounds(500,25,300,50);
+		title.setFont(f1); // arial font set to title 
+		add(title);
+		
+		Label l1=new Label("Enter Your Name:");
+		l1.setBounds(200,100,200,30);
+		add(l1);	
+		
+		TextField  t1=new TextField(20);
+		t1.setEchoChar('@');	
+		t1.setBounds(400,100,200,30);
+		add(t1);
+
+		Label l2=new Label("Enter Father Name:");
+		l2.setBounds(200,150,200,30);
+		add(l2);	
+		
+		TextField  t2=new TextField(20);
+		t2.setBounds(400,150,200,30);
+		add(t2);
+
+			
+
+		Button b1=new Button("ClickeMe");
+		b1.setBounds(300,300,100,30);
+		add(b1);
+
+	}
+	
+}
+
