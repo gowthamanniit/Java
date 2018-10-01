@@ -1,4 +1,5 @@
 
+//================================database + console =======================================
 		import java.sql.*;
 		
 		class Database1
@@ -28,3 +29,272 @@
 				}	
 			}
 		}
+//======================================================= swing +database selection=======================
+
+package DataBase;
+
+import java.awt.Component;
+public class ReadData {
+
+	private JFrame frame;
+	JList<String> list;
+	List li;
+	String[] values;
+	int i;
+	DefaultListModel<String> dlm;
+	private JTable table;
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ReadData window = new ReadData();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ReadData() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 578, 440);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		li=new List(10);
+		li.add("c");
+		li.add("c++");
+		li.add("java");
+		li.add("vb");
+		li.setBounds(359,30,203,203);
+		frame.getContentPane().add(li);
+		
+		
+		dlm=new DefaultListModel<String>();
+		dlm.addElement("january");
+		dlm.addElement("february");
+		list= new JList<String>(dlm);
+		
+		//values = new String[]{"january", "february","march"};
+		
+		/*
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {"january", "february","march"};
+			
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});*/
+		list.setBounds(10, 40, 203, 193);
+		frame.getContentPane().add(list);
+		
+		JButton btnView = new JButton("view");
+		btnView.addActionListener(new ActionListener() {
+					@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//li.add(".net");	
+						
+						li.removeAll();
+						try
+						{
+						Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+						Connection con=DriverManager.getConnection("JDBC:ODBC:anand","","");
+						Statement st=con.createStatement();
+						ResultSet rs=st.executeQuery("select * from details");
+
+							while(rs.next())
+							{
+								//System.out.println(" "+rs.getInt(1) + " "+rs.getString(2)+"  "+rs.getInt(3));
+								//dlm.addElement(" "+rs.getInt(1) + " "+rs.getString(2)+"  "+rs.getInt(3));
+								li.add(String.format("%5d", rs.getInt(1)) +"  "+"  "+String.format("%5d",rs.getInt(3)));
+								li.add("___________________________________");
+								
+			
+							}				
+							rs.close();
+							st.close();
+							con.close();
+
+						}
+						catch(Exception e1)
+						{
+							System.out.println("database error :"+e1.toString());
+						}	
+			}
+		});
+		btnView.setBounds(235, 67, 89, 23);
+		frame.getContentPane().add(btnView);
+		
+		JButton btnShow = new JButton("show");
+		btnShow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					dlm.addElement("new added");
+				}
+			
+		});
+		btnShow.setBounds(63, 11, 89, 23);
+		frame.getContentPane().add(btnShow);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		table.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 0), new Color(0, 255, 0)), new LineBorder(new Color(0, 0, 0), 3, true)));
+		table.setBounds(317, 381, -263, -118);
+		frame.getContentPane().add(table);
+	}
+}
+
+
+// ======================================================   swing + database  insert operation ==================
+
+package DataBase;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.sql.*;
+;public class InsertQuery implements ActionListener {
+
+	private JFrame frame;
+	private JTextField textregno;
+	private JTextField textname;
+	private JTextField textmark;
+	int rno,mark;
+	String name;
+	JButton btnInsert;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					InsertQuery window = new InsertQuery();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public InsertQuery() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		textregno = new JTextField();
+		textregno.setBounds(168, 83, 86, 20);
+		frame.getContentPane().add(textregno);
+		textregno.setColumns(10);
+		
+		textname = new JTextField();
+		textname.setBounds(168, 134, 86, 20);
+		frame.getContentPane().add(textname);
+		textname.setColumns(10);
+		
+		textmark = new JTextField();
+		textmark.setBounds(168, 194, 86, 20);
+		frame.getContentPane().add(textmark);
+		textmark.setColumns(10);
+		
+		btnInsert = new JButton("insert");
+		btnInsert.setBounds(304, 133, 89, 23);
+		frame.getContentPane().add(btnInsert);
+		btnInsert.addActionListener(this);
+		
+		JLabel lblNewLabel = new JLabel("regno");
+		lblNewLabel.setBounds(81, 86, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setBounds(81, 137, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblMark = new JLabel("mark");
+		lblMark.setBounds(81, 197, 46, 14);
+		frame.getContentPane().add(lblMark);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		rno=Integer.parseInt(textregno.getText());
+		name=textname.getText();
+		mark=Integer.parseInt(textmark.getText());
+		try
+		{
+		Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		Connection con=DriverManager.getConnection("JDBC:ODBC:anand","","");
+		Statement st=con.createStatement();
+		
+		int ans=st.executeUpdate("insert into details values("+rno+",'"+name+"',"+mark+")");
+		if(ans>0)
+		{
+			JOptionPane.showMessageDialog(null, "successfully inserted "+ans+" records into database");
+			textregno.setText("");
+			textname.setText("");
+			textmark.setText("");
+			textregno.requestFocus();
+			
+		}
+		else
+			JOptionPane.showMessageDialog(null, "0 records inserted");
+		
+		
+		st.close();
+		con.close();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "error :"+ex.toString());
+		}
+		
+	}
+}
