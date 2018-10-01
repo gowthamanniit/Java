@@ -336,4 +336,31 @@ Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		else
 			JOptionPane.showMessageDialog(null, "tota rows : 0 not found");
 		
-	//=========================================================================================
+	//========================================delete =================================================
+	int ans=st.executeUpdate("delete from details where mark="+mark);
+		if(ans>0)
+		{
+			JOptionPane.showMessageDialog(null, "successfully deleted "+ans+" records into database");
+			textregno.setText("");
+			textname.setText("");
+			textmark.setText("");
+			textregno.requestFocus();
+			
+		}
+		else
+			JOptionPane.showMessageDialog(null, "0 records inserted");
+	//=============================================update==============================================
+	int ans=st.executeUpdate("update details set name='"+name+"',mark="+mark+" where regno="+rno);
+		if(ans>0)
+		{
+			JOptionPane.showMessageDialog(null, "successfully updated "+ans+" records into database");
+			textregno.setText("");
+			textname.setText("");
+			textmark.setText("");
+			textregno.requestFocus();
+			
+		}
+		else
+			JOptionPane.showMessageDialog(null, "0 recored updated");
+	//====================================================================================================
+		
