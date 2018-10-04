@@ -1,0 +1,15 @@
+
+// how to open system calc and notpad
+//=========================================
+package database;
+
+public class calc1 {
+
+	public static void main(String[] args)throws Exception {
+		// TODO Auto-generated method stub
+
+		Runtime r1=Runtime.getRuntime();
+	//	r1.exec("calc.exe");
+		r1.exec("notepad.exe");
+	}
+}
