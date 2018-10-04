@@ -60,7 +60,22 @@ input="";
 //[abc]*  zero or more chars (abc only ex: aaaaa abcabcabc )
 //[abc]+  atleast one or more char   (do not give empty)
 // 
-//==========================================================================================================
+//================================================split==========================================================
+import java.util.regex.Pattern;
+
+public class RegEx1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i=0;		
+		Pattern p1=Pattern.compile(":");
+		//String m1[]=p1.split("one:two:three:four");
+		String m1[]=p1.split("one:two:three:four",3);
+		for(String str:m1)
+		System.out.println(++i +": "+str);			
+			
+	}
+}
+//===============================================================================================
 package CastingObjects;
 
 import java.util.regex.Matcher;
