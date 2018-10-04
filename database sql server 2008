@@ -1,4 +1,36 @@
 
+	java + sqlserver 2008 connection:
+	===========================
+
+	step 1:
+		download sqljdbc4-2.0.jar (exe) 
+
+		www.github.com/gowthamanniit/sqljdbc4-2.0.jar
+
+	step 2:
+		open sqlserverconficuration manager
+		start -- sqlserver(sqlexpress)
+		start -- sqlbrowser
+	step 3:
+		ms sqlserver management studio :
+ 		open --> 
+			server type: database engine
+			server name: ./sqlexpress
+			authenticaion: sql server authentication
+			login: sa (common)
+			password: ***** (installed time)
+		ok.
+		new query --> database,use,create,insert,select.
+
+	step 4:
+		eclipse open --> projectname right click -->build path -->
+			
+		add external jar --> choose sqljdbc4-2.0.jar file --> apply
+		-->ok.
+
+	step 5: program type.
+
+
 package database;
 import java.sql.*;
 public class SqlCon {
