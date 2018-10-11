@@ -79,6 +79,167 @@ public static void main(String[] args) {
 }    
 }  
 
-//====================================
-	 
-   
+//=================================Events 1.ActionListener - Action Event (BUTTON)=============
+
+package application1;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class AddTwo implements ActionListener {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	JButton btnAdd;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddTwo window = new AddTwo();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AddTwo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(202, 56, 86, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(202, 120, 86, 20);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(202, 208, 86, 20);
+		frame.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		btnAdd = new JButton("add");
+		btnAdd.setBounds(199, 163, 89, 23);
+		btnAdd.addActionListener(this);
+		frame.getContentPane().add(btnAdd);
+		
+		JLabel lblNo = new JLabel("no1");
+		lblNo.setBounds(120, 59, 46, 14);
+		frame.getContentPane().add(lblNo);
+		
+		JLabel lblNo_1 = new JLabel("no2");
+		lblNo_1.setBounds(120, 134, 46, 14);
+		frame.getContentPane().add(lblNo_1);
+		
+		JLabel lblAnswer = new JLabel("answer");
+		lblAnswer.setBounds(107, 211, 46, 14);
+		frame.getContentPane().add(lblAnswer);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		int a=Integer.parseInt(textField.getText());
+		int b=Integer.parseInt(textField_1.getText());
+		int c=a+b;
+		textField_2.setText(String.valueOf(c));
+
+
+	}
+}
+
+   //=============================
+   package application1;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class ButtonClick extends JFrame implements ActionListener{
+
+	/**
+	 * 
+	 */
+	
+	//private JFrame frame;
+	JButton btnClickeMe;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		/*EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ButtonClick window = new ButtonClick();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});*/
+		JFrame frame = new ButtonClick();
+		frame.setSize(500, 500);
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ButtonClick() {
+		getContentPane().setLayout(null);
+		
+		JLabel lblButtonClickExample = new JLabel("BUTTON CLICK EXAMPLE");
+		lblButtonClickExample.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblButtonClickExample.setBounds(253, 71, 288, 48);
+		
+		getContentPane().add(lblButtonClickExample);
+		
+		btnClickeMe = new JButton("CLICKE ME");
+		btnClickeMe.setBounds(328, 210, 122, 23);
+		btnClickeMe.addActionListener(this);
+		getContentPane().add(btnClickeMe);
+			
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		btnClickeMe.setText("Clicked");		
+		btnClickeMe.setBackground(Color.green);
+		
+	}
+}
+
