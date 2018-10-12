@@ -242,4 +242,155 @@ public class ButtonClick extends JFrame implements ActionListener{
 		
 	}
 }
+//=================================================control statments if,if else,if else if ,nested if==================
+package application1;
+
+import java.awt.EventQueue;
+
+public class AddTwo implements ActionListener {
+
+	private JFrame frame;
+	private JTextField tamil;
+	private JTextField english;
+	private JTextField total;
+	JButton btnAdd;
+	private JTextField maths;
+	private JTextField avg;
+	private JTextField result;
+	private JTextField grade;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddTwo window = new AddTwo();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AddTwo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 745, 468);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		tamil = new JTextField();
+		tamil.setBounds(202, 56, 86, 20);
+		frame.getContentPane().add(tamil);
+		tamil.setColumns(10);
+		
+		english = new JTextField();
+		english.setBounds(202, 120, 86, 20);
+		frame.getContentPane().add(english);
+		english.setColumns(10);
+		
+		total = new JTextField();
+		total.setBounds(202, 254, 86, 20);
+		frame.getContentPane().add(total);
+		total.setColumns(10);
+		
+		btnAdd = new JButton("show ");
+		btnAdd.setBounds(202, 220, 89, 23);
+		btnAdd.addActionListener(this);
+		frame.getContentPane().add(btnAdd);
+		
+		JLabel lblNo = new JLabel("no1");
+		lblNo.setBounds(120, 59, 46, 14);
+		frame.getContentPane().add(lblNo);
+		
+		JLabel lblNo_1 = new JLabel("no2");
+		lblNo_1.setBounds(120, 123, 46, 14);
+		frame.getContentPane().add(lblNo_1);
+		
+		JLabel lblAnswer = new JLabel("Total");
+		lblAnswer.setBounds(120, 257, 46, 14);
+		frame.getContentPane().add(lblAnswer);
+		
+		maths = new JTextField();
+		maths.setBounds(202, 174, 86, 20);
+		frame.getContentPane().add(maths);
+		maths.setColumns(10);
+		
+		JLabel lblNo_2 = new JLabel("no.3");
+		lblNo_2.setBounds(120, 177, 46, 14);
+		frame.getContentPane().add(lblNo_2);
+		
+		JLabel lblAvg = new JLabel("avg");
+		lblAvg.setBounds(120, 311, 46, 14);
+		frame.getContentPane().add(lblAvg);
+		
+		avg = new JTextField();
+		avg.setBounds(202, 308, 86, 20);
+		frame.getContentPane().add(avg);
+		avg.setColumns(10);
+		
+		result = new JTextField();
+		result.setBounds(202, 363, 86, 20);
+		frame.getContentPane().add(result);
+		result.setColumns(10);
+		
+		JLabel lblResult = new JLabel("result");
+		lblResult.setBounds(120, 366, 46, 14);
+		frame.getContentPane().add(lblResult);
+		
+		grade = new JTextField();
+		grade.setBounds(202, 399, 86, 20);
+		frame.getContentPane().add(grade);
+		grade.setColumns(10);
+		
+		JLabel lblGrade = new JLabel("grade");
+		lblGrade.setBounds(120, 402, 46, 14);
+		frame.getContentPane().add(lblGrade);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		int a=Integer.parseInt(tamil.getText());
+		int b=Integer.parseInt(english.getText());
+		int c=Integer.parseInt(maths.getText());
+		
+		int d=a+b+c;
+		total.setText(String.valueOf(d));
+		float av=d/3.0f;
+		avg.setText(String.valueOf(av));
+		
+		if(a>=40 && b>=40 && c>4)
+		{
+			result.setText("pass");
+			if(av>=85)
+				grade.setText("outstanding");
+			else if(av>=75)
+				grade.setText("excellent");
+			else if(av>=65)
+				grade.setText("good");
+			else
+				grade.setText("fair");
+		}
+		else
+		{
+			result.setText("Fail");
+			grade.setText("Participation certificate");
+		}
+		
+		
+
+	}
+}
+
 
