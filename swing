@@ -392,5 +392,75 @@ public class AddTwo implements ActionListener {
 
 	}
 }
+//================================================looping + array =============================================
+package application1;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+
+public class Auto1 implements ActionListener{
+
+	private JFrame frame;
+	JButton btnNewButton;
+	JComboBox comboBox;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Auto1 window = new Auto1();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Auto1() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		btnNewButton= new JButton("New button");
+		btnNewButton.setBounds(175, 126, 89, 23);
+		btnNewButton.addActionListener(this);
+		frame.getContentPane().add(btnNewButton);
+		
+		 comboBox = new JComboBox();
+		 
+		comboBox.setBounds(308, 127, 89, 20);
+		frame.getContentPane().add(comboBox);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String months[]={"jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"};
+		
+		for(int i=0;i<months.length;i++)
+		{
+		comboBox.addItem(months[i]);
+		}		
+	}
+}
 
 
