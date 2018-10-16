@@ -79,6 +79,67 @@ public static void main(String[] args) {
 }    
 }  
 
+	JToggleButton
+	=============
+
+	use: same as switch on or off
+
+	event: ItemEvent
+	Listener: ItemListener 
+	method: public void itemStateChanged(ItemEvent ie)
+		{
+		if(toggleButton.isSelected()==true)
+		toggleButton.setText("off");
+		else
+		toggleButton.setText("on");
+		}
+
+	JButton
+	=======
+	use:
+            some action performed when user one touch or click.
+
+	event: ActionEvent (class)
+	Listener: ActionListener(i/f)
+	method:
+	public void actionPerformed(ActionEvent ae) {
+	
+			/*if(ae.getSource()==btnAdd)
+				ansLabel.setText("add button u clicked");
+			else if(ae.getSource()==btnSub)
+				ansLabel.setText("sub button u clicked");
+			else
+				ansLabel.setText("mul button u clicked");*/
+		// or
+		if(ae.getActionCommand()=="add")
+			ansLabel.setText("add button u clicked");
+		else if(ae.getActionCommand()=="sub")
+			ansLabel.setText("sub button u clicked");
+		else
+			ansLabel.setText("mul button u clicked");
+			
+	}
+	
+	JCombobox
+	==========
+
+		use: choice option(any one select at a time).
+		
+			another name: dropdown 
+		
+	event: ActionEvent,ItemEvent
+	Listener: ActionListener,ItemListener
+	method :  1 + 1
+
+	
+	String var[]= {"Jan","Feb","Mar","Apr","May","Jun","Jul"};
+	for(int i=0;i<var.length;i++)
+	comboBox.addItem(var[i]);
+
+
+		//lblAns.setText(comboBox.getSelectedIndex()+"");
+		lblAns.setText(comboBox.getSelectedItem()+"");
+
 //=================================Events 1.ActionListener - Action Event (BUTTON)=============
 
 package application1;
