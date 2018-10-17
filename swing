@@ -523,5 +523,98 @@ public class Auto1 implements ActionListener{
 		}		
 	}
 }
+//================================================================================
+package application1;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.*;
+import java.awt.Font;
+
+public class Item1 implements ActionListener,ItemListener{
+
+	private JFrame frame;
+	private JButton btnAdd;
+	private JComboBox<String> comboCode,comboBox;
+	JLabel lblMonthselect;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Item1 window = new Item1();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Item1() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 610, 463);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"}));
+		comboBox.setMaximumRowCount(4);
+		comboBox.addItemListener(this);
+		comboBox.setBounds(287, 124, 102, 20);
+		frame.getContentPane().add(comboBox);
+		
+		comboCode = new JComboBox();
+		comboCode.setBounds(126, 124, 75, 20);
+	
+		frame.getContentPane().add(comboCode);
+		
+		JLabel lblWithCode = new JLabel("with code");
+		lblWithCode.setBounds(144, 81, 46, 14);
+		frame.getContentPane().add(lblWithCode);
+		
+		JLabel lblWithoutCode = new JLabel("without code");
+		lblWithoutCode.setBounds(321, 81, 86, 14);
+		frame.getContentPane().add(lblWithoutCode);
+		
+		btnAdd = new JButton("add");
+		btnAdd.setBounds(112, 183, 89, 23);
+		btnAdd.addActionListener(this);
+		frame.getContentPane().add(btnAdd);
+		
+		lblMonthselect = new JLabel("monthSelect");
+		lblMonthselect.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblMonthselect.setBounds(321, 349, 192, 44);
+		frame.getContentPane().add(lblMonthselect);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		String mon[]={"jan","feb","mar","apr","may","jun"};
+		for(int i=0;i<mon.length;i++)
+		comboCode.addItem(mon[i]);
+		
+	}
+	public void itemStateChanged(ItemEvent ie)
+	{
+		lblMonthselect.setText(""+comboBox.getSelectedItem());
+	}
+}
 
 
