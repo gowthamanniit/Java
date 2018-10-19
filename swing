@@ -1,324 +1,20 @@
-======================================notes about swing=================================
-
-swing
-
- is a part of Java Foundation Classes (JFC) 
-that is used to create window-based applications.
-
-javax.swing package provides classes for java swing API 
-such as JButton, JTextField, JTextArea, JRadioButton, JCheckbox, JMenu, JColorChooser etc.
-
-Java swing components are platform-independent.
-
-lightweight.
-
-Swing follows MVC.
-
- where model represents data,
- view represents presentation and
- controller acts as an interface between model and view.
-
-
-public void add(Component c)	add a component on another component.
-public void setSize(int width,int height)	sets size of the component.
-public void setLayout(LayoutManager m)	sets the layout manager for the component.
-public void setVisible(boolean b)	sets the visibility of the component. It is by default false.
-
-
-
-Java Swing Examples
-There are two ways to create a frame:
-
-By creating the object of Frame class (association)
-By extending Frame class (inheritance)
-We can write the code of swing inside the main(), constructor or any other method.
-
-import library for accessing gui compponents
-
-import javax.swing.*;
-
-//===================================================================================================================
-
-
-JList  + defaultListModel
-=====
-	
-  JList<String> list;
-	DefaultListModel<String> dlm=new DefaultListModel<String>();   // dynamically addded values using addelement method.
-		dlm.addElement("january");
-		dlm.addElement("february");
-		list= new JList<String>(dlm);
-	
-  //===========2 method  (only static)==========================
-  
-  JList + Array any type
-   ====================
-  JList<String> list;
-  Stirng values[]=new String[]{"dsafsd","asdfasd","asdfasd"};
-	list= new JList<String>(values);
-  //======================================================================================
-  
-  import javax.swing.*;    
-public class TableExample {    
-    JFrame f;    
-    TableExample(){    
-    f=new JFrame();    
-    String data[][]={ {"101","Amit","670000"},    
-                          {"102","Jai","780000"},    
-                          {"101","Sachin","700000"}};    
-    String column[]={"ID","NAME","SALARY"};         
-    JTable jt=new JTable(data,column);    
-    jt.setBounds(30,40,200,300);          
-    JScrollPane sp=new JScrollPane(jt);    
-    f.add(sp);          
-    f.setSize(300,400);    
-    f.setVisible(true);    
-}     
-public static void main(String[] args) {    
-    new TableExample();    
-}    
-}  
-
-	JToggleButton
-	=============
-
-	use: same as switch on or off
-
-	event: ItemEvent
-	Listener: ItemListener 
-	method: public void itemStateChanged(ItemEvent ie)
-		{
-		if(toggleButton.isSelected()==true)
-		toggleButton.setText("off");
-		else
-		toggleButton.setText("on");
-		}
-
-	JButton
-	=======
-	use:
-            some action performed when user one touch or click.
-
-	event: ActionEvent (class)
-	Listener: ActionListener(i/f)
-	method:
-	public void actionPerformed(ActionEvent ae) {
-	
-			/*if(ae.getSource()==btnAdd)
-				ansLabel.setText("add button u clicked");
-			else if(ae.getSource()==btnSub)
-				ansLabel.setText("sub button u clicked");
-			else
-				ansLabel.setText("mul button u clicked");*/
-		// or
-		if(ae.getActionCommand()=="add")
-			ansLabel.setText("add button u clicked");
-		else if(ae.getActionCommand()=="sub")
-			ansLabel.setText("sub button u clicked");
-		else
-			ansLabel.setText("mul button u clicked");
-			
-	}
-	
-	JCombobox
-	==========
-
-		use: choice option(any one select at a time).
-		
-			another name: dropdown 
-		
-	event: ActionEvent,ItemEvent
-	Listener: ActionListener,ItemListener
-	method :  1 + 1
-
-	
-	String var[]= {"Jan","Feb","Mar","Apr","May","Jun","Jul"};
-	for(int i=0;i<var.length;i++)
-	comboBox.addItem(var[i]);
-
-
-		//lblAns.setText(comboBox.getSelectedIndex()+"");
-		lblAns.setText(comboBox.getSelectedItem()+"");
-
-//=================================Events 1.ActionListener - Action Event (BUTTON)=============
-
 package application1;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
-public class AddTwo implements ActionListener {
-
-	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	JButton btnAdd;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddTwo window = new AddTwo();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public AddTwo() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		textField = new JTextField();
-		textField.setBounds(202, 56, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(202, 120, 86, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(202, 208, 86, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-		
-		btnAdd = new JButton("add");
-		btnAdd.setBounds(199, 163, 89, 23);
-		btnAdd.addActionListener(this);
-		frame.getContentPane().add(btnAdd);
-		
-		JLabel lblNo = new JLabel("no1");
-		lblNo.setBounds(120, 59, 46, 14);
-		frame.getContentPane().add(lblNo);
-		
-		JLabel lblNo_1 = new JLabel("no2");
-		lblNo_1.setBounds(120, 134, 46, 14);
-		frame.getContentPane().add(lblNo_1);
-		
-		JLabel lblAnswer = new JLabel("answer");
-		lblAnswer.setBounds(107, 211, 46, 14);
-		frame.getContentPane().add(lblAnswer);
-	}
-	public void actionPerformed(ActionEvent ae)
-	{
-		int a=Integer.parseInt(textField.getText());
-		int b=Integer.parseInt(textField_1.getText());
-		int c=a+b;
-		textField_2.setText(String.valueOf(c));
-
-
-	}
-}
-
-   //=============================
-   package application1;
-
-import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-
-public class ButtonClick extends JFrame implements ActionListener{
-
-	/**
-	 * 
-	 */
-	
-	//private JFrame frame;
-	JButton btnClickeMe;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ButtonClick window = new ButtonClick();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});*/
-		JFrame frame = new ButtonClick();
-		frame.setSize(500, 500);
-		frame.setVisible(true);
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public ButtonClick() {
-		getContentPane().setLayout(null);
-		
-		JLabel lblButtonClickExample = new JLabel("BUTTON CLICK EXAMPLE");
-		lblButtonClickExample.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblButtonClickExample.setBounds(253, 71, 288, 48);
-		
-		getContentPane().add(lblButtonClickExample);
-		
-		btnClickeMe = new JButton("CLICKE ME");
-		btnClickeMe.setBounds(328, 210, 122, 23);
-		btnClickeMe.addActionListener(this);
-		getContentPane().add(btnClickeMe);
-			
-	}
-	public void actionPerformed(ActionEvent ae)
-	{
-		btnClickeMe.setText("Clicked");		
-		btnClickeMe.setBackground(Color.green);
-		
-	}
-}
-//=================================================control statments if,if else,if else if ,nested if==================
-package application1;
-
-import java.awt.EventQueue;
-
-public class AddTwo implements ActionListener {
+public class Focus1 implements FocusListener{
 
 	private JFrame frame;
-	private JTextField tamil;
-	private JTextField english;
-	private JTextField total;
-	JButton btnAdd;
-	private JTextField maths;
-	private JTextField avg;
-	private JTextField result;
-	private JTextField grade;
+	private JTextField t1;
+	JLabel lblAns;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -327,7 +23,7 @@ public class AddTwo implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddTwo window = new AddTwo();
+					Focus1 window = new Focus1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -339,156 +35,7 @@ public class AddTwo implements ActionListener {
 	/**
 	 * Create the application.
 	 */
-	public AddTwo() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 745, 468);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		tamil = new JTextField();
-		tamil.setBounds(202, 56, 86, 20);
-		frame.getContentPane().add(tamil);
-		tamil.setColumns(10);
-		
-		english = new JTextField();
-		english.setBounds(202, 120, 86, 20);
-		frame.getContentPane().add(english);
-		english.setColumns(10);
-		
-		total = new JTextField();
-		total.setBounds(202, 254, 86, 20);
-		frame.getContentPane().add(total);
-		total.setColumns(10);
-		
-		btnAdd = new JButton("show ");
-		btnAdd.setBounds(202, 220, 89, 23);
-		btnAdd.addActionListener(this);
-		frame.getContentPane().add(btnAdd);
-		
-		JLabel lblNo = new JLabel("no1");
-		lblNo.setBounds(120, 59, 46, 14);
-		frame.getContentPane().add(lblNo);
-		
-		JLabel lblNo_1 = new JLabel("no2");
-		lblNo_1.setBounds(120, 123, 46, 14);
-		frame.getContentPane().add(lblNo_1);
-		
-		JLabel lblAnswer = new JLabel("Total");
-		lblAnswer.setBounds(120, 257, 46, 14);
-		frame.getContentPane().add(lblAnswer);
-		
-		maths = new JTextField();
-		maths.setBounds(202, 174, 86, 20);
-		frame.getContentPane().add(maths);
-		maths.setColumns(10);
-		
-		JLabel lblNo_2 = new JLabel("no.3");
-		lblNo_2.setBounds(120, 177, 46, 14);
-		frame.getContentPane().add(lblNo_2);
-		
-		JLabel lblAvg = new JLabel("avg");
-		lblAvg.setBounds(120, 311, 46, 14);
-		frame.getContentPane().add(lblAvg);
-		
-		avg = new JTextField();
-		avg.setBounds(202, 308, 86, 20);
-		frame.getContentPane().add(avg);
-		avg.setColumns(10);
-		
-		result = new JTextField();
-		result.setBounds(202, 363, 86, 20);
-		frame.getContentPane().add(result);
-		result.setColumns(10);
-		
-		JLabel lblResult = new JLabel("result");
-		lblResult.setBounds(120, 366, 46, 14);
-		frame.getContentPane().add(lblResult);
-		
-		grade = new JTextField();
-		grade.setBounds(202, 399, 86, 20);
-		frame.getContentPane().add(grade);
-		grade.setColumns(10);
-		
-		JLabel lblGrade = new JLabel("grade");
-		lblGrade.setBounds(120, 402, 46, 14);
-		frame.getContentPane().add(lblGrade);
-	}
-	public void actionPerformed(ActionEvent ae)
-	{
-		int a=Integer.parseInt(tamil.getText());
-		int b=Integer.parseInt(english.getText());
-		int c=Integer.parseInt(maths.getText());
-		
-		int d=a+b+c;
-		total.setText(String.valueOf(d));
-		float av=d/3.0f;
-		avg.setText(String.valueOf(av));
-		
-		if(a>=40 && b>=40 && c>4)
-		{
-			result.setText("pass");
-			if(av>=85)
-				grade.setText("outstanding");
-			else if(av>=75)
-				grade.setText("excellent");
-			else if(av>=65)
-				grade.setText("good");
-			else
-				grade.setText("fair");
-		}
-		else
-		{
-			result.setText("Fail");
-			grade.setText("Participation certificate");
-		}
-		
-		
-
-	}
-}
-//================================================looping + array =============================================
-package application1;
-
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-
-public class Auto1 implements ActionListener{
-
-	private JFrame frame;
-	JButton btnNewButton;
-	JComboBox comboBox;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Auto1 window = new Auto1();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Auto1() {
+	public Focus1() {
 		initialize();
 	}
 
@@ -501,120 +48,37 @@ public class Auto1 implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		btnNewButton= new JButton("New button");
-		btnNewButton.setBounds(175, 126, 89, 23);
-		btnNewButton.addActionListener(this);
-		frame.getContentPane().add(btnNewButton);
+		t1 = new JTextField();
+		t1.setBounds(181, 67, 86, 20);
+		t1.addFocusListener(this);
+		frame.getContentPane().add(t1);
+		t1.setColumns(10);
 		
-		 comboBox = new JComboBox();
-		 
-		comboBox.setBounds(308, 127, 89, 20);
-		frame.getContentPane().add(comboBox);
+		JLabel lblFocuseventExamle = new JLabel("FocusEvent Examle");
+		lblFocuseventExamle.setBounds(181, 26, 105, 14);
+		frame.getContentPane().add(lblFocuseventExamle);
+		
+		lblAns = new JLabel("ans");
+		lblAns.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblAns.setBounds(88, 137, 336, 78);
+		frame.getContentPane().add(lblAns);
+		
+		textField = new JTextField();
+		textField.setBounds(181, 106, 86, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		String months[]={"jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"};
-		
-		for(int i=0;i<months.length;i++)
-		{
-		comboBox.addItem(months[i]);
-		}		
-	}
-}
-//================================================================================
-package application1;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.*;
-import java.awt.Font;
-
-public class Item1 implements ActionListener,ItemListener{
-
-	private JFrame frame;
-	private JButton btnAdd;
-	private JComboBox<String> comboCode,comboBox;
-	JLabel lblMonthselect;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Item1 window = new Item1();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Item1() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 610, 463);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"}));
-		comboBox.setMaximumRowCount(4);
-		comboBox.addItemListener(this);
-		comboBox.setBounds(287, 124, 102, 20);
-		frame.getContentPane().add(comboBox);
-		
-		comboCode = new JComboBox();
-		comboCode.setBounds(126, 124, 75, 20);
+	public void focusGained(FocusEvent e) {
 	
-		frame.getContentPane().add(comboCode);
-		
-		JLabel lblWithCode = new JLabel("with code");
-		lblWithCode.setBounds(144, 81, 46, 14);
-		frame.getContentPane().add(lblWithCode);
-		
-		JLabel lblWithoutCode = new JLabel("without code");
-		lblWithoutCode.setBounds(321, 81, 86, 14);
-		frame.getContentPane().add(lblWithoutCode);
-		
-		btnAdd = new JButton("add");
-		btnAdd.setBounds(112, 183, 89, 23);
-		btnAdd.addActionListener(this);
-		frame.getContentPane().add(btnAdd);
-		
-		lblMonthselect = new JLabel("monthSelect");
-		lblMonthselect.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblMonthselect.setBounds(321, 349, 192, 44);
-		frame.getContentPane().add(lblMonthselect);
+		lblAns.setText("gain - cursor in textbox");
 	}
-	public void actionPerformed(ActionEvent ae)
-	{
-		String mon[]={"jan","feb","mar","apr","may","jun"};
-		for(int i=0;i<mon.length;i++)
-		comboCode.addItem(mon[i]);
-		
+
+	@Override
+	public void focusLost(FocusEvent e) {
+	
+		lblAns.setText("lost - cursor in textbox");
 	}
-	public void itemStateChanged(ItemEvent ie)
-	{
-		lblMonthselect.setText(""+comboBox.getSelectedItem());
-	}
+	
 }
-
-
