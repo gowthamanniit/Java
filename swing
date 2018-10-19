@@ -1,20 +1,18 @@
 package application1;
 
 import java.awt.EventQueue;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class Focus1 implements FocusListener{
+public class Mouse1 implements MouseListener,MouseMotionListener{
 
 	private JFrame frame;
-	private JTextField t1;
-	JLabel lblAns;
-	private JTextField textField;
+	JLabel l1,l2;
 
 	/**
 	 * Launch the application.
@@ -23,7 +21,7 @@ public class Focus1 implements FocusListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Focus1 window = new Focus1();
+					Mouse1 window = new Mouse1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +33,7 @@ public class Focus1 implements FocusListener{
 	/**
 	 * Create the application.
 	 */
-	public Focus1() {
+	public Mouse1() {
 		initialize();
 	}
 
@@ -48,37 +46,58 @@ public class Focus1 implements FocusListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		t1 = new JTextField();
-		t1.setBounds(181, 67, 86, 20);
-		t1.addFocusListener(this);
-		frame.getContentPane().add(t1);
-		t1.setColumns(10);
+	 l1 = new JLabel("mouse on me");
+		l1.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		l1.setBounds(181, 27, 139, 52);
+		l1.addMouseListener(this);
+		frame.getContentPane().add(l1);
 		
-		JLabel lblFocuseventExamle = new JLabel("FocusEvent Examle");
-		lblFocuseventExamle.setBounds(181, 26, 105, 14);
-		frame.getContentPane().add(lblFocuseventExamle);
-		
-		lblAns = new JLabel("ans");
-		lblAns.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblAns.setBounds(88, 137, 336, 78);
-		frame.getContentPane().add(lblAns);
-		
-		textField = new JTextField();
-		textField.setBounds(181, 106, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		 l2 = new JLabel("New label");
+		l2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		l2.setBounds(83, 142, 297, 58);
+		frame.getContentPane().add(l2);
 	}
 
 	@Override
-	public void focusGained(FocusEvent e) {
-	
-		lblAns.setText("gain - cursor in textbox");
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("clicked");
 	}
 
 	@Override
-	public void focusLost(FocusEvent e) {
-	
-		lblAns.setText("lost - cursor in textbox");
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("pressed");
 	}
-	
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("released");
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("entered  x y pos"+e.getX()+" "+e.getY());
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("exited");
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("dragged");
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("moved");
+	}
+
 }
