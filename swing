@@ -82,3 +82,108 @@ public class Focus1 implements FocusListener{
 	}
 	
 }
+//=mouse event
+package application1;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+public class Mouse1 implements MouseListener,MouseMotionListener{
+
+	private JFrame frame;
+	JLabel l1,l2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Mouse1 window = new Mouse1();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Mouse1() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+	 l1 = new JLabel("mouse on me");
+		l1.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		l1.setBounds(181, 27, 139, 52);
+		l1.addMouseListener(this);
+		frame.getContentPane().add(l1);
+		
+		 l2 = new JLabel("New label");
+		l2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		l2.setBounds(83, 142, 297, 58);
+		frame.getContentPane().add(l2);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("clicked");
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("pressed");
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("released");
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("entered  x y pos"+e.getX()+" "+e.getY());
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("exited");
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("dragged");
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		l2.setText("moved");
+	}
+
+}
+
