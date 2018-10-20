@@ -43,7 +43,7 @@ public class windowLis1 implements WindowListener{
 	}
 
 	@Override
-	public void windowOpened(WindowEvent e) {
+	public void windowOpened(WindowEvent e) {                   // 2
 		// TODO Auto-generated method stub
 		System.out.println("opened");
 	}
@@ -61,19 +61,19 @@ public class windowLis1 implements WindowListener{
 	}
 
 	@Override
-	public void windowIconified(WindowEvent e) {
+	public void windowIconified(WindowEvent e) {    // minimize
 		// TODO Auto-generated method stub
 		System.out.println("Iconified");
 	}
 
 	@Override
-	public void windowDeiconified(WindowEvent e) {
+	public void windowDeiconified(WindowEvent e) {  // open minimized window
 		// TODO Auto-generated method stub
 		System.out.println("Deiconified");
 	}
 
 	@Override
-	public void windowActivated(WindowEvent e) {
+	public void windowActivated(WindowEvent e) {   //  1
 		// TODO Auto-generated method stub
 		System.out.println("activated");
 	}
