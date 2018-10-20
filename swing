@@ -64,6 +64,7 @@ public class windowLis1 implements WindowListener{
 	public void windowIconified(WindowEvent e) {    // minimize
 		// TODO Auto-generated method stub
 		System.out.println("Iconified");
+		System.exit(0);
 	}
 
 	@Override
@@ -82,6 +83,7 @@ public class windowLis1 implements WindowListener{
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("deactivated");
+		System.exit(0);
 	}
 
 }
