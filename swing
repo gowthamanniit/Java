@@ -1,19 +1,24 @@
-package application1;
+package application;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Mouse1 implements MouseListener,MouseMotionListener{
+public class Key1 implements KeyListener{
 
 	private JFrame frame;
-	JLabel l1,l2;
-
+	private JTextField textField;
+	JLabel lblAns;
+	int i=0,dir=0;
 	/**
 	 * Launch the application.
 	 */
@@ -21,7 +26,7 @@ public class Mouse1 implements MouseListener,MouseMotionListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Mouse1 window = new Mouse1();
+					Key1 window = new Key1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +38,7 @@ public class Mouse1 implements MouseListener,MouseMotionListener{
 	/**
 	 * Create the application.
 	 */
-	public Mouse1() {
+	public Key1() {
 		initialize();
 	}
 
@@ -46,171 +51,51 @@ public class Mouse1 implements MouseListener,MouseMotionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-	 l1 = new JLabel("mouse on me");
-		l1.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		l1.setBounds(181, 27, 139, 52);
-		l1.addMouseListener(this);
-		frame.getContentPane().add(l1);
+		textField = new JTextField();
+		textField.setBounds(183, 74, 150, 20);
+		textField.addKeyListener(this);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
 		
-		 l2 = new JLabel("New label");
-		l2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		l2.setBounds(83, 142, 297, 58);
-		frame.getContentPane().add(l2);
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("clicked");
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("pressed");
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("released");
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("entered  x y pos"+e.getX()+" "+e.getY());
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("exited");
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("dragged");
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		l2.setText("moved");
-	}
-
-}
-//===============================================color selection====================
-package application;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
-
-
-public class ColorSelect implements MouseListener{
-
-	private JFrame frame;
-	JButton red,green,yellow;
-	JLabel lblAns;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ColorSelect window = new ColorSelect();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public ColorSelect() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 576, 443);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		JLabel lblEnterSomething = new JLabel("Enter something");
+		lblEnterSomething.setBounds(62, 80, 111, 14);
+		frame.getContentPane().add(lblEnterSomething);
 		
-		JLabel lblNewLabel = new JLabel("Click the Green Color:");
-		lblNewLabel.setBounds(62, 61, 371, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-	 red = new JButton("");
-	 	red.addMouseListener(this);
-		red.setBackground(Color.RED);
-		red.setBounds(62, 118, 89, 23);
-		frame.getContentPane().add(red);
-		
-	 green = new JButton("");
-	 green.addMouseListener(this);
-		green.setBackground(Color.GREEN);
-		green.setBounds(182, 118, 89, 23);
-		frame.getContentPane().add(green);
-		
-	 yellow = new JButton("");
-	 yellow.addMouseListener(this);
-		yellow.setBackground(Color.YELLOW);
-		yellow.setBounds(296, 118, 89, 23);
-		frame.getContentPane().add(yellow);
-		
-	 lblAns = new JLabel("ans");
-		lblAns.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblAns.setBounds(149, 242, 284, 36);
+		lblAns = new JLabel("ans");
+		lblAns.setIcon(new ImageIcon("C:\\Users\\R03-NIITKARUR-SLT02\\Desktop\\images\\rajiniweb_03.jpg"));
+		lblAns.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblAns.setBounds(164, 182, 191, 29);
 		frame.getContentPane().add(lblAns);
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		lblAns.setText("Key Typed");
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		lblAns.setText("Key Pressed"+e.getKeyCode());
 		
+		
+		if(e.getKeyCode()==65 || e.getKeyCode()==38)
+		{
+			dir=dir+(++i);
+			lblAns.setBounds(dir, 182, 191, 29);
+		}
+		else if(e.getKeyCode()==66 || e.getKeyCode()==40)
+		{
+			dir=dir-(++i);	
+		
+			lblAns.setBounds(dir, 182, 191, 29);
+		}
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource()==green)
-		lblAns.setText("correct one : Congradulation");
-		else
-		lblAns.setText("Sorry : Wrong Answer");
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		lblAns.setText("Key Released");
 	}
 }
-
