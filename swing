@@ -101,3 +101,116 @@ public class Mouse1 implements MouseListener,MouseMotionListener{
 	}
 
 }
+//===============================================color selection====================
+package application;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+
+
+public class ColorSelect implements MouseListener{
+
+	private JFrame frame;
+	JButton red,green,yellow;
+	JLabel lblAns;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ColorSelect window = new ColorSelect();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ColorSelect() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 576, 443);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Click the Green Color:");
+		lblNewLabel.setBounds(62, 61, 371, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+	 red = new JButton("");
+	 	red.addMouseListener(this);
+		red.setBackground(Color.RED);
+		red.setBounds(62, 118, 89, 23);
+		frame.getContentPane().add(red);
+		
+	 green = new JButton("");
+	 green.addMouseListener(this);
+		green.setBackground(Color.GREEN);
+		green.setBounds(182, 118, 89, 23);
+		frame.getContentPane().add(green);
+		
+	 yellow = new JButton("");
+	 yellow.addMouseListener(this);
+		yellow.setBackground(Color.YELLOW);
+		yellow.setBounds(296, 118, 89, 23);
+		frame.getContentPane().add(yellow);
+		
+	 lblAns = new JLabel("ans");
+		lblAns.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblAns.setBounds(149, 242, 284, 36);
+		frame.getContentPane().add(lblAns);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==green)
+		lblAns.setText("correct one : Congradulation");
+		else
+		lblAns.setText("Sorry : Wrong Answer");
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
