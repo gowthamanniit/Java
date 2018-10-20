@@ -3,22 +3,12 @@ package application;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-public class Key1 implements KeyListener{
+import java.awt.event.WindowListener;
+import java.awt.event.WindowEvent;
+public class windowLis1 implements WindowListener{
 
 	private JFrame frame;
-	private JTextField textField;
-	JLabel lblAns;
-	int i=0,dir=0;
+
 	/**
 	 * Launch the application.
 	 */
@@ -26,7 +16,7 @@ public class Key1 implements KeyListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Key1 window = new Key1();
+					windowLis1 window = new windowLis1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +28,7 @@ public class Key1 implements KeyListener{
 	/**
 	 * Create the application.
 	 */
-	public Key1() {
+	public windowLis1() {
 		initialize();
 	}
 
@@ -48,54 +38,50 @@ public class Key1 implements KeyListener{
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
+		frame.addWindowListener(this);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		textField = new JTextField();
-		textField.setBounds(183, 74, 150, 20);
-		textField.addKeyListener(this);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblEnterSomething = new JLabel("Enter something");
-		lblEnterSomething.setBounds(62, 80, 111, 14);
-		frame.getContentPane().add(lblEnterSomething);
-		
-		lblAns = new JLabel("ans");
-		lblAns.setIcon(new ImageIcon("C:\\Users\\R03-NIITKARUR-SLT02\\Desktop\\images\\rajiniweb_03.jpg"));
-		lblAns.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblAns.setBounds(164, 182, 191, 29);
-		frame.getContentPane().add(lblAns);
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		lblAns.setText("Key Typed");
+		System.out.println("opened");
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
-		lblAns.setText("Key Pressed"+e.getKeyCode());
-		
-		
-		if(e.getKeyCode()==65 || e.getKeyCode()==38)
-		{
-			dir=dir+(++i);
-			lblAns.setBounds(dir, 182, 191, 29);
-		}
-		else if(e.getKeyCode()==66 || e.getKeyCode()==40)
-		{
-			dir=dir-(++i);	
-		
-			lblAns.setBounds(dir, 182, 191, 29);
-		}
+		System.out.println("closing");
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void windowClosed(WindowEvent e) {
 		// TODO Auto-generated method stub
-		lblAns.setText("Key Released");
+		System.out.println("closed");
 	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("Iconified");
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("Deiconified");
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("activated");
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("deactivated");
+	}
+
 }
