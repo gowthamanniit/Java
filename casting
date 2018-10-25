@@ -1,0 +1,66 @@
+two types:
+  1) casting primitive datatypes (implicit-auto,explicit)
+  2) casting object(up,down)
+  
+  package newproject;
+public class typeconvcast {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		// TYPE CASTING
+			int a=1000;
+			long b=a;  // IMPLICIT CONVERSION - AUTOMATIC ( TYPE CASTING)
+			short c=(short)a; // EXPLICIT CONVERSION
+			System.out.println(b);
+			System.out.println(c);
+	}
+}
+
+
+//==========================
+
+package newproject;
+class base1
+{
+	void dispaly()
+	{
+		
+	System.out.println("base");
+	}	
+}
+class derive extends base1
+{
+	void dispaly()
+	{
+		
+	System.out.println("derive");
+	}	
+}
+public class castin1 {
+	public static void main(String args[])
+	{
+		// 1) ===========upcasting
+		base1 ob1=new base1();
+		ob1.dispaly();
+		
+		derive ob2=new derive();
+		ob2.dispaly();
+		
+		ob1=ob2;  // upcasting derive to base (bottom to top)
+		ob1.dispaly();
+		
+		//===============or ===============
+		
+		base1 ob3=new derive();  // direct instance assign upcasting
+		ob3.dispaly();
+		
+		//=========2 ) downcasting
+		base1 ob4;
+		derive ob5;
+		ob4= new derive();
+		ob5	= (derive)ob4;      // int b= (int)long value;
+		ob5.dispaly();			
+	}
+}
+
+  
