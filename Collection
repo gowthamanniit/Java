@@ -1,10 +1,22 @@
 collections:
 ===============
 
-Set - HashSet,TreeSet
-List - ArrayList,LinkedList,Vector
-Map-HashMap,TreeMap,HashTable
-Deque-ArrayDeque
+1) Set - HashSet,TreeSet
+2) List - ArrayList,LinkedList,Vector
+3) Map-HashMap,TreeMap,HashTable
+ HashMap --> key -> null, value-> null, <key ,value> = null
+ 		 --> any order
+ TreeMap --> key--> must , value = null
+ 		 --> ascending order
+ Hashtable --> null dont accpet
+ 		 --> andy order
+4) Deque-ArrayDeque
+*) This is a special kind of array that grows and allows users to add or remove an element from both the sides of the queue.
+*) Array deques have no capacity restrictions and they grow as necessary to support usage.
+Null elements are prohibited in the ArrayDeque.
+ArrayDeque class is likely to be faster than Stack when used as a stack.
+ArrayDeque class is likely to be faster than LinkedList when used as a queue.
+
 =======================
 
 
@@ -367,12 +379,7 @@ public class ArrayList1 {
 		//=================================map========================================================
 		/*
  
- HashMap --> key -> null, value-> null, <key ,value> = null
- 		 --> any order
- TreeMap --> key--> must , value = null
- 		 --> ascending order
- Hashtable --> null dont accpet
- 		 --> andy order
+
  
  
  */
