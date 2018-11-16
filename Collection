@@ -5,7 +5,8 @@ collections:
 2) List - ArrayList,LinkedList,Vector
 	Vector is synchronized, which means only one thread at a time can access the code, while arrayList is not synchronized, 
 	which means multiple threads can work on arrayList at the same time. 
-	linkedlist: both end easily to add ,remove operation.
+	linkedlist: LinkedList is implemented as a double linked list. 
+	It's performance on add and remove is better than Arraylist, but worse on get and set methods.
 3) Map-HashMap,TreeMap,HashTable
  HashMap --> key -> null, value-> null, <key ,value> = null
  		 --> any order
