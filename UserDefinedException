@@ -50,5 +50,55 @@ public class ThrowError {
 		}
 		}
 	}
+	//==================================================
+	import java.util.Scanner;
+
+public class UserExcep extends Exception{
+Scanner scan=new Scanner(System.in);
+ 
+    String ans="";
+   public UserExcep(){}
+   public UserExcep(String e)
+   {
+	   System.out.println("Exception raised "+e);
+   }
+   void display()
+   {
+	   try
+	   {
+	   System.out.println("Enter age:");
+	   int age=scan.nextInt();
+	   if(age<=17 || age>=101)
+	   {
+		   
+		   throw new UserExcep("please enter 18 to 100");
+	   }	
+	   else
+		   System.out.println("age accepted");
+	   }
+	   catch(Exception e)
+	   {
+		   ans=e.toString();
+		   System.out.println("errrror :"+ans);		   
+	   }
+	   finally
+	   {
+		   if(ans.equals(""))
+			   System.out.println("program finished no error");
+		   else
+		   {
+			   System.out.println("program finished with error");
+			   ans="";
+			   display();
+		   }
+			   
+	   }	   
+   }	
+	public static void main(String[] args) {
+		UserExcep ob=new UserExcep();
+		ob.display();
+	}
+}
+
 
 
