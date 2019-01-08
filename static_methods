@@ -1,0 +1,35 @@
+
+
+public class StaticDataMember1 {
+
+	int a;
+	static int b;   // static variable or static data member
+					//def : global in the class. and 
+				  //def:   used commonly by all the objects of that class type  
+	
+	void display() // allows both noraml + static var
+	{
+		a++;
+		b++;
+		System.out.println("a = "+a+" static b="+b);
+		
+	}
+	static void show()   // static method or static member method
+	{					 // only allows static variable
+		System.out.println("only static var b="+b);
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StaticDataMember1 ob=new StaticDataMember1();
+		ob.display();	
+		StaticDataMember1 ob1=new StaticDataMember1();
+		ob1.display();	
+		StaticDataMember1 ob2=new StaticDataMember1();
+		ob2.display();	
+		
+		StaticDataMember1.show();  // no need to call with object
+								   // only classname
+	}
+}
