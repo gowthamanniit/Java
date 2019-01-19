@@ -1,0 +1,27 @@
+
+	syllabus:
+	=======
+	1) introduction ( invention ,year, architecture(src,compiler,class,jvm,veriyfy class,jit output,api,os & hardware), simple prgm run)
+	2) building blocks of java program
+		    class and objects	
+		    datatypes
+		    class members (access specifier/modifer,innerclass,methods with args)
+		    packages 	
+	3) operator
+	4) constructor,destructor
+	5) conditional constructor (if ,if else...swith)
+	6) looping
+	7) arrays , enum, strings, stringBuffer
+	8) inheritance,polimorphishm,interface
+	9) exception handling
+	10)UI components,Managing Layout,Events model,Event Listener
+	11) type casting
+	12) regular expression
+	13) localization(date,time,currency,text)
+	14) generics class,methods 
+	15) collection ( set,list,map)
+	16) thread,Multithread(synchronization)
+	17) File,inputStream,outputstream
+	18) JDBC(database)
+	
+	
