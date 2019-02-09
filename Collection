@@ -2,11 +2,30 @@ collections:
 ===============
 
 1) Set - HashSet,TreeSet
+
+	HashSet:
+		- random order
+		- unique values only accept (last one accept)
+		- size
+		- null accept
+		- use iterator only (take individual elements)
+	TreeSet:
+		- asceding order
+		- unique values only accept(last one accept)
+		- null accept
+		- use iterator only (take individual elements)
+		
 2) List - ArrayList,LinkedList,Vector
+		
 	Vector is synchronized, which means only one thread at a time can access the code, while arrayList is not synchronized, 
 	which means multiple threads can work on arrayList at the same time. 
-	linkedlist: LinkedList is implemented as a double linked list. 
+	linkedlist: LinkedList is implemented as a double linked list. (null accpet)
 	It's performance on add and remove is better than Arraylist, but worse on get and set methods.
+	
+	note:
+	    both using ListIterator(forward and backwared direction) , Iterator(forward only)
+			+ foreach
+			
 3) Map-HashMap,TreeMap,HashTable
  HashMap --> key -> null, value-> null, <key ,value> = null
  		 --> any order
@@ -14,7 +33,10 @@ collections:
  		 --> ascending order
  Hashtable --> null dont accpet
  		 --> andy order
-4) Deque-ArrayDeque
+		 
+		 note: not use iterator or Listiterator 
+		 		only use foreach
+4) Deque-ArrayDeque (same as linked list but not accept null values)
 *) This is a special kind of array that grows and allows users to add or remove an element from both the sides of the queue.
 *) Array deques have no capacity restrictions and they grow as necessary to support usage.
 Null elements are prohibited in the ArrayDeque.
