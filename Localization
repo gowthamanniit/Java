@@ -91,6 +91,48 @@ public class Localization2_Time {
 }
 //===============================================================
 localizing Text
+
+
+localizing Text:
+=============
+
+prerequests:
+===========
+	1)  ctrl + N --> file --> src folder select
+               
+
+	file name:  anyname(bundlename)_languagecode_countrycode.properites
+
+	-->next -->finish
+
+		ex: mesBundle_en_IN.properties
+		(underscore is must _lancode_countrycode)
+
+	2)
+	    amma=mother
+	    appa=dadday
+	  .....
+		save
+
+	3) program type:
+		
+		prerequests:
+			import java.util.ResouceBundle;
+			locale: you must give saved properites file. 
+			eg:
+			Locale l1=new Locale("en","IN");
+	
+			resoursebundle :  name must be save file properties name (before _)	
+		
+			eg:
+
+		ResourceBundle rb=ResourceBundle.getBundle("mesBundle",l1);
+		System.out.println(rb.getString("amma"));	
+
+
+	
+		
+
 //============================MessageBundle_ta_IN.properties=======(src packge must save)============================
 daddy=appa
 mummy=amma
