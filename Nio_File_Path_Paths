@@ -1,0 +1,45 @@
+package gowthaman;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+/*
+ * Path = interface
+ * Paths = class
+ * 
+ * 
+ */
+
+public class NIO_Path_Paths {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Path p1=Paths.get("d:/sk/mno.txt");
+		Path p2=Paths.get("d:/123.txt");
+		Path p3=Paths.get("d:/gow/tha/man/123.txt");
+		Path p4=Paths.get("d:/1112.txt");
+		System.out.println(p1.getFileName());
+		System.out.println(p1.getName(0));
+		System.out.println(p1.getName(1));
+		System.out.println(p1.getFileSystem());
+		System.out.println(p1.getNameCount());
+		System.out.println(p1.getParent());
+		System.out.println(p1.getRoot());
+		System.out.println(p1.isAbsolute());
+		
+		System.out.println(p1.compareTo(p2));
+		try
+		{
+			Files.copy(p2, p4);   // p2 must p4 (don't contain- only create newly)
+							      // p2 content stored to p4
+			Files.createDirectories(p3);  // create all of directories including 123.txt
+		
+		}
+		catch(Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+
+}
