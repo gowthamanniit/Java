@@ -1,0 +1,37 @@
+package gowthaman;
+
+import java.io.FileReader;
+
+public class FileReaderTest1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int k;
+		try
+		{
+		FileReader fr=new FileReader("d:/123.txt");
+		
+		//type 1
+		/*
+		while((k=fr.read())!=-1)
+		{
+			System.out.print((char)k);
+		}*/
+		
+		 //type2
+		/* 
+		char allData[]=new char[100];
+		
+		fr.read(allData);
+		
+		for(char c:allData)
+		{
+			System.out.print(c);
+		}
+		
+		*/
+		}
+		catch(Exception e) {System.out.println(e.toString());}
+	}
+
+}
