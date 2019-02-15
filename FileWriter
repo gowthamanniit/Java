@@ -1,0 +1,23 @@
+package gowthaman;
+
+import java.io.FileWriter;
+
+public class FileWriter1 {
+
+	public static void main(String[] args)throws Exception {
+		// TODO Auto-generated method stub
+
+		FileWriter fw=new FileWriter("d:/1111.txt");
+		String s="this is text to store d:/1111.txt file";
+		
+		//fw.write(s);
+		
+		//char c[]=new char[s.length()];
+		//fw.write(s, 0, s.length());
+		fw.write(s, 10, 15); // only take 15 char's frome 10 th index  
+		
+		fw.close();  // fw.close is must to write file.
+		
+	}
+
+}
