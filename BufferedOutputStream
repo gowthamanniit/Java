@@ -1,0 +1,23 @@
+package gowthaman;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+
+public class BufferedOutputSt1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try
+		{
+			BufferedOutputStream bos=new BufferedOutputStream(System.out);
+			String s="this text is stored to buffer temporary";
+			bos.write(s.getBytes());
+			String k=bos.toString();
+			System.out.println("before flush ="+k);
+			bos.flush(); // to erase temporary storage
+			k=bos.toString();
+			System.out.println("After flush  = "+k);			
+		}
+		catch(Exception e) {}		
+	}
+}
