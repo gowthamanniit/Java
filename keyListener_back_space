@@ -1,0 +1,25 @@
+public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		c=e.getKeyChar();
+		if(c>='a' && c<='z')
+		s=s+c;
+		
+		if(c==e.VK_BACK_SPACE)
+		{
+			if(s.length()>0)
+				s=s.substring(0, s.length()-2);
+		}
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		t1.setText(s);
+	}
