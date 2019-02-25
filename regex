@@ -331,3 +331,27 @@ Enter regex pattern: java
 Enter text: this is java, do you know java
 I found the text java starting at index 8 and ending at index 12
 I found the text java starting at index 26 and ending at index 30
+
+//
+
+package dt;
+
+import java.util.regex.Pattern;
+
+public class RegEx1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i=0;		
+		Pattern p1=Pattern.compile(":");
+		//String m1[]=p1.split("one:two:three:four");
+		String m1[]=p1.split("one:two:three:four",3);
+		for(String str:m1)
+		System.out.println(++i +": "+str);			
+			
+	}
+}
+
+output:
+1 : one
+2 : two
+3 : three 
