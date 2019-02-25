@@ -123,3 +123,46 @@ public class ThreadRunnable
 		
 	}
 }
+
+//========================================================Using Constructor=================================
+	class NewT implements Runnable
+	{
+		String name;
+		Thread t;
+		NewT(String tname)
+		{
+			name=tname;
+			t=new Thread(this,name);
+			t.start();
+		}
+		public void run()
+		{
+			try
+			{
+				for(int i=20;i>0;i--)
+					
+				{
+					System.out.println(name+" : "+i);
+					Thread.sleep(500);
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println("inter");
+				System.out.println("ext");
+			}
+		}
+	}
+		
+
+public class test109 {
+			
+		
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		NewT ob1=new NewT("one");
+		System.out.println("thread one is alive :"+ob1.t.isAlive());
+		System.out.println("main ext");
