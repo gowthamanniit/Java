@@ -6,12 +6,24 @@
 		download sqljdbc4-2.0.jar (exe) 
 
 		https://github.com/gowthamanniit/Java_Syllabus/blob/sqljdbc4.2.jar/sqljdbc4-2.0.jar
+		
+		sql server conficuration manager.
+		==================================
+		https://www.microsoft.com/en-in/download/details.aspx?id=1695
+		sql server management studio express:
+		========================================
+		https://www.microsoft.com/en-in/download/details.aspx?id=7593
+		
 
 	step 2:
 		open sqlserverconficuration manager
 		start -- sqlserver(sqlexpress)
 		start -- sqlbrowser
+		enable -- TCP/IP
+		
 	step 3:
+		register - sql server (sa,password)
+	        
 		ms sqlserver management studio :
  		open --> 
 			server type: database engine
