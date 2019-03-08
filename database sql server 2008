@@ -29,3 +29,58 @@ public class SqlCon {
 		}	
 	}
 }
+import java.sql.*;
+public class SimplePgm {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try
+		{
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			System.out.println("Driver Accepted");
+			
+			Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost\\sqlexpress;databaseName=niit6to8", "sa", "12345");
+			System.out.println("Connection accepted");
+			
+			Statement st=con.createStatement();
+			
+			ResultSet rs=st.executeQuery("select * from student");
+			
+			
+			
+			int tot_col=rs.getMetaData().getColumnCount();
+			System.out.println("total columns :"+tot_col);
+			
+			String col_name[]=new String[tot_col];
+			
+			for(int i=0;i<tot_col;i++)
+			{
+				col_name[i]=rs.getMetaData().getColumnName(i+1);
+				System.out.println(" column name : "+col_name[i]);
+			}
+			
+			while(rs.next())
+			{
+			  System.out.println(rs.getRow());
+			  //System.out.println(rs.getString(col_name[0])+rs.getString(col_name[1])+rs.getString(col_name[2]));
+			  for(int i=0;i<tot_col;i++)
+			  {
+				  System.out.print(rs.getString(col_name[i])+"     ");
+			  }
+			  System.out.println();
+			}
+			
+			
+			rs.close();
+			st.close();
+			con.close();			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+	}
+
+}
+
