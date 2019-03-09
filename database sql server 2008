@@ -22,7 +22,8 @@
 		enable -- TCP/IP
 		
 	step 3:
-		register - sql server (sa,password)
+		register - sql server (sa,password)[ view menu --> Registered Servers --> Local Server Groups --> new server
+		Registration --> ... --> test.-->save.
 	        
 		ms sqlserver management studio :
  		open --> 
