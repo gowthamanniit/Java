@@ -126,3 +126,132 @@ public class SQLpgm1 {
 
 	}
 }
+==================================================================================================================================
+                                                             login page:
+==================================================================================================================================
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.sql.*;
+
+public class LoginDetails implements ActionListener {
+
+	private JFrame frame;
+	private JTextField t1;
+	private JPasswordField p1;
+	JButton b1,b2;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginDetails window = new LoginDetails();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public LoginDetails() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 992, 671);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblLoginForm = new JLabel("LOGIN FORM");
+		lblLoginForm.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblLoginForm.setBounds(432, 122, 174, 88);
+		frame.getContentPane().add(lblLoginForm);
+		
+		JLabel lblEnterUserName = new JLabel("Enter User Name");
+		lblEnterUserName.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblEnterUserName.setBounds(219, 253, 130, 51);
+		frame.getContentPane().add(lblEnterUserName);
+		
+		JLabel lblEnterPassword = new JLabel("Enter Password");
+		lblEnterPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblEnterPassword.setBounds(219, 345, 130, 51);
+		frame.getContentPane().add(lblEnterPassword);
+		
+		t1 = new JTextField();
+		t1.setBounds(377, 270, 252, 20);
+		frame.getContentPane().add(t1);
+		t1.setColumns(10);
+		
+		p1 = new JPasswordField();
+		p1.setBounds(377, 362, 252, 20);
+		frame.getContentPane().add(p1);
+		
+		b1 = new JButton("Login");
+		b1.setBounds(332, 469, 89, 23);
+		b1.addActionListener(this);
+		frame.getContentPane().add(b1);
+		
+		b2 = new JButton("reset");
+		b2.setBounds(499, 469, 89, 23);
+		frame.getContentPane().add(b2);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		String user=t1.getText();
+		char pa[]=p1.getPassword();
+		String pass="";
+		int len=pa.length;
+		for(int i=0;i<len;i++)
+		{
+			pass=pass+pa[i];
+		}
+		
+		try
+		{
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost\\sqlexpress;databaseName=niit6to8", "sa","12345");
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery("select * from login where user1='"+user+"' and pass1='"+pass+"'");
+			
+			if(rs.next()==true)
+			{
+			//	JOptionPane.showMessageDialog(frame, "SUccess");
+				SuccessPage sp=new SuccessPage();
+				frame.setVisible(false);
+				sp.frame.setVisible(true);
+			}
+			else
+				JOptionPane.showMessageDialog(frame, "Invalid user "+user+"!");
+			rs.close();
+			st.close();
+			con.close();			
+		}
+		catch(Exception e)
+		{
+			JOptionPane.showMessageDialog(frame, "Error Name : "+e.toString());
+		}
+		
+		
+	}
+	
+}
+
