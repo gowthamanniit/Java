@@ -6,11 +6,11 @@
 		    class and objects	
 		    datatypes
 		    class members (access specifier/modifer,innerclass,methods with args)
-		    packages 	
-	3) operator
+		    packages          
+	3) To get Runtime value, operator
 	4) constructor,destructor
 	5) conditional constructor (if ,if else...swith)
-	6) looping
+	6) looping,jumping statement
 	7) arrays , enum, strings, stringBuffer
 	8) inheritance,polimorphishm,interface
 	9) exception handling
