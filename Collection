@@ -5,14 +5,14 @@ collections:
 
 	HashSet:
 		- random order
-		- unique values only accept (last one accept)
+		- unique values only accept 
 		- size
-		- null accept
+		- null accept but unique
 		- use iterator only (take individual elements)
 	TreeSet:
 		- asceding order
 		- unique values only accept(last one accept)
-		- null accept
+		- null not accept
 		- use iterator only (take individual elements)
 		
 2) List - ArrayList,LinkedList,Vector
