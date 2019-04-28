@@ -1,0 +1,29 @@
+
+public class Arrex {
+	public static void main(String[] args) {
+		// array copy
+		
+		int[] a= {23,45,45,56,23,23,34,45,56,67,76};
+		int b[]=new int[a.length];
+		//System.arraycopy(src, srcPos, dest, destPos, length);
+		System.arraycopy(a, 4, b, 7, 3);
+		
+		for(int i=0;i<b.length;i++)
+			System.out.println(i+" position = "+b[i]);
+		
+	}
+}
+/*
+ * output:
+0 position = 0
+1 position = 0
+2 position = 0
+3 position = 0
+4 position = 0
+5 position = 0
+6 position = 0
+7 position = 23
+8 position = 23
+9 position = 34
+10 position = 0
+ */
