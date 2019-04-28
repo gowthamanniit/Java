@@ -1,0 +1,12 @@
+public class Test4 
+{
+	public static void main(String[] args) 
+	{
+		String sh="Blue Ribbon, Red Ribbon, Black Ribbon, Yellow Ribbon";
+		String[] res=sh.split(", ");
+		for(String s:res)
+		{
+			System.out.println(s);
+		}
+	}
+}
