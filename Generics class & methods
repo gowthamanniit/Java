@@ -63,4 +63,26 @@ ex:
 
 
 */
+//================================================combine generic class & methods=======================================
+package GENERIC;
+
+public class GClass<GC> {
+
+	
+	<GM>void display(GM a,GC b)
+	
+	{
+		System.out.println(" A =  "+a);
+		System.out.println(" B =  "+b);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GClass<Integer> s1=new GClass<Integer>();
+		
+		s1.display("gowthaman", 45);		
+		s1.display('k', 55);
+		s1.display(33.44f, 55);	
+
+}
+}
 
