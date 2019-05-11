@@ -1,2 +1,2 @@
-# Java_Syllabus
-6 to 8 batch 8 members 
+# Java_prepared by Gowthaman
+if you have any doubt contact at Email: karurgowthaman@gmail.com
