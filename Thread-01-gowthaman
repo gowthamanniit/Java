@@ -3,3 +3,8 @@
 - Thread is a java inbuilt class.
 
 - multi task (same time --> working word,audio,....)
+
+- public static void main(String args[])  // main is one Thread.
+{
+
+}
