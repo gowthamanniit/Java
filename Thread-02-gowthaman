@@ -1,0 +1,150 @@
+package Thread_pgm;
+
+class A
+{
+	void show()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("A Thread "+i);
+		}
+	}
+}
+
+class B
+{
+	void show()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("B Thread "+i);
+		}
+	}
+}
+
+public class Simple {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a1=new A();
+		B b1=new B();
+		a1.show();
+		b1.show();
+	}
+}
+//==============================================output==========================================================================
+A Thread 1
+A Thread 2
+A Thread 3
+A Thread 4
+A Thread 5
+B Thread 1
+B Thread 2
+B Thread 3
+B Thread 4
+B Thread 5
+//==============================================same program using Thread=========================================================
+package Thread_pgm;
+
+class A extends Thread
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("A Thread "+i);
+		}
+	}
+}
+
+class B extends Thread
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("B Thread "+i);
+		}
+	}
+}
+
+public class Simple {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a1=new A();
+		B b1=new B();
+		a1.start();
+		b1.start();
+	}
+}
+========================================output 1====================================================
+A Thread 1
+B Thread 1
+B Thread 2
+A Thread 2
+A Thread 3
+A Thread 4
+A Thread 5
+B Thread 3
+B Thread 4
+B Thread 5
+==========================================output 2 =================================================
+A Thread 1
+B Thread 1
+A Thread 2
+A Thread 3
+A Thread 4
+A Thread 5
+B Thread 2
+B Thread 3
+B Thread 4
+B Thread 5
+===============================================using sleep method ====================================================
+package Thread_pgm;
+
+class A extends Thread
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("A Thread "+i);
+			try {Thread.sleep(1000);} catch(Exception e) {}
+		}
+	}
+}
+
+class B extends Thread
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("B Thread "+i);
+			try {Thread.sleep(1000);} catch(Exception e) {}
+		}
+	}
+}
+
+public class Simple {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a1=new A();
+		B b1=new B();
+		a1.start();
+		b1.start();
+	}
+}
+========================================output =============================================================
+A Thread 1
+B Thread 1
+B Thread 2
+A Thread 2
+A Thread 3
+B Thread 3
+B Thread 4
+A Thread 4
+B Thread 5
+A Thread 5
+
+
+
