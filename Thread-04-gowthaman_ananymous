@@ -1,0 +1,82 @@
+
+// Anonymous class (only interface & abstract class): no name (ie. not implements Runnable )
+// use: 1. reduce code line
+// use: 2. more efficient (do not create class with implements)
+
+package Thread_pgm;
+/*
+class A implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("A Thread "+i);
+			try {Thread.sleep(1000);} catch(Exception e) {}
+		}
+	}
+}
+
+class B implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("B Thread "+i);
+			try {Thread.sleep(1000);} catch(Exception e) {}
+		}
+	}
+}
+*/
+
+public class Simple {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// A a1=new A();   NO NEED A CLASS WHEN USE ANANYMOUS CLASS
+		// B b1=new B();   NO NEED B CLASS WHEN USE ANANYMOUS CLASS
+		/*
+		Thread t1=new Thread(a1);
+		Thread t2=new Thread(b1);
+		*/
+		
+		// step 1: Thread t1=new Thread();
+		// step 2: Thread t1=new Thread(new Runnable(){});
+		
+		Thread t1=new Thread(new Runnable() 
+				{
+					public void run()
+					{
+						for(int i=1;i<=5;i++)
+						{
+							System.out.println("A Thread "+i);
+							try {Thread.sleep(1000);} catch(Exception e) {}
+						}				
+					}
+				});
+		
+		t1.start();
+		
+		//===============================================METHOD 2 =============================
+		
+		Runnable r1=new Runnable() 
+		{
+			public void run()
+			{
+				for(int i=1;i<=5;i++)
+				{
+					System.out.println("B Thread "+i);
+					try {Thread.sleep(1000);} catch(Exception e) {}
+				}		
+			}
+		};
+		
+		Thread t2=new Thread(r1);
+		t2.start();
+		
+	}
+}
+
+
+
