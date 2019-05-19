@@ -1,4 +1,8 @@
 - Thread is a unit of process.   (ex.excel , typing formula, error correction)
+
+                                  excel- main process, typing formula -sub process, error -sub process
+                                       
+                                       here sub process is a Thread.
 - Thread is a Task.
 - Thread is a java inbuilt class.
 (import java.lang.Thread)
