@@ -4,8 +4,17 @@
                                        
                                        here sub process is a Thread.
 - Thread is a Task.
+
+- There are two ways to create Thread.
+1. Thread Class
+2. Runnable Interface.
+
 - Thread is a java inbuilt class.
 (import java.lang.Thread)
+- Runnable is a java inbuilt interface.
+(import java.lang.Runnable)
+
+
 
 - multi task (same time --> working word,audio,....)
 
