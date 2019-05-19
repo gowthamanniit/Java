@@ -1,0 +1,78 @@
+package Thread_pgm;
+
+// join and isalive() method
+
+public class Simple {
+	public static void main(String[] args)throws Exception
+	{
+		
+				
+		Runnable r1=new Runnable() 
+		{
+			public void run()
+			{
+				for(int i=1;i<=5;i++)
+				{
+					System.out.println("A Thread "+i);
+					try {Thread.sleep(1000);} catch(Exception e) {}
+				}		
+			}
+		};
+		
+		Thread t1=new Thread(r1);
+		
+		
+	
+	//===================  method 3 lambda or anonymous expression ==============================
+	
+		// remove this line and add " -> "
+		////////////////////////////
+		//     new Runnable()     //
+		//     {                  // 
+		//	     public void run  //
+		////////////////////////////
+			
+		Runnable r2=()->
+			{
+				for(int i=1;i<=5;i++)
+				{
+					System.out.println("B Thread "+i);
+					try {Thread.sleep(1000);} catch(Exception e) {}
+				}			
+		    };
+		
+		Thread t2=new Thread(r2);
+		
+		
+		
+		t1.start();
+		//t1.join();  // add throws Exception
+		t2.start();
+		
+		System.out.println("A thread :"+t1.isAlive());
+		t1.join();
+		t2.join();
+		System.out.println("A thread :"+t1.isAlive());
+		
+		
+		System.out.println("good bye");  // print earlier when not use in join method.
+	
+	
+  }
+}
+
+//===========================================output=====================================
+
+A thread :true
+B Thread 1
+A Thread 1
+B Thread 2
+A Thread 2
+B Thread 3
+A Thread 3
+B Thread 4
+A Thread 4
+A Thread 5
+B Thread 5
+A thread :false
+good bye
