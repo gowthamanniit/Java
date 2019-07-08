@@ -1,0 +1,32 @@
+
+java program in eclipse:
+========================
+step 1:
+	eclipse open
+setp 2:
+	file --> new --> javaproject (first time only)
+	project name : type any --> next --> finish.
+
+	or
+
+	shortcut key --> ctrl + n --> javaproject
+step 3:
+	file --> new --> class --> Name: filename type any
+
+			tick: public static void main(String args[])
+	or
+
+	shortcut --> ctrl + n --> class
+step 4:
+	next --> finish.
+
+note : if project explorer is not visible in left pane.
+window menu --> show view --> project explorer,console application
+ etc...
+
+Shortcut key for run javaprogram:
+==================================
+ctrl + f11  or green color play button.
+
+eclipse: auto compile(check code -  red color error)
+			(yellow color -warning)
