@@ -1,3 +1,13 @@
+how to create workspace(folder)?
+===============================
+
+file --> switch worksapce --> other (create own workspace)
+
+format :
+ 1) workspace (Main-folder- only one)
+ 2) java project (sub folder - single or many)  --> ctrl+ n 
+ 3) class (java programs-many)     --> ctrl+n
+ 
 
 java program in eclipse:
 ========================
