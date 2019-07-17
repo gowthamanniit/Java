@@ -1,3 +1,12 @@
+//======================================================================
+	String days[]= {"aaa","bbb","ccccc","dddd","eee","fff","ggg"};
+		
+		for(String var : days)
+		{
+			System.out.println(var);
+		}
+//==========================================================================
+
 public class Test4 
 {
 	public static void main(String[] args) 
