@@ -1,0 +1,18 @@
+interface vs abstract class:
+=============================
+
+main purpose: override (run time polymorphism)
+
+difference:
+===========
+
+1)  don't create object for interface & abstract
+2)  interface only declare method. but abstract class
+    both define(nomarl method) and declare(abstract method).
+3) interface varibale define is must. don't change anywhere.
+   but abstract variabel define or declare or change anywhere.
+
+4) must use method in dervie interface methods public is must.
+   abtract class public is not must.
+   
+	
