@@ -6,7 +6,7 @@ main purpose: override (run time polymorphism)
 difference:
 ===========
 
-1)  don't create object for interface & abstract
+1)  don't create object for interface & abstract . but we can use ananymous class.
 2)  interface only declare method. but abstract class
     both define(nomarl method) and declare(abstract method).
 3) interface varibale define is must. don't change anywhere.
