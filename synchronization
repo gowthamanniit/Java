@@ -1,0 +1,50 @@
+package basicc;
+
+class Testing
+{
+	int count;
+	public synchronized void increment()
+	{
+		count=count+1;
+	}
+	
+}
+public class FileConcetps 
+{
+	public static void main(String[] args) throws InterruptedException   
+	{
+	Testing te=new Testing();
+	/*t1.increment();
+	t1.increment();
+	System.out.println(t1.count);*/
+	
+	Thread t1=new Thread(new Runnable() {
+		
+		public void run() {
+			int i;
+			for( i=1;i<=1000;i++)
+			{
+				te.increment();
+			}
+		}
+	});
+	Thread t2=new Thread(new Runnable() {
+		
+		public void run() {
+			int i;
+			for(i=1;i<=1000;i++)
+			{
+				te.increment();
+			}
+		}
+	});
+
+		t1.start();
+		t2.start();
+		t1.join();
+		t2.join();
+	    System.out.println(te.count);
+	
+				
+	}
+}
