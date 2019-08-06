@@ -1,0 +1,46 @@
+JDBC: Java Database Connectivity.
+===============================
+
+java to sql
+sql to java
+
+step 1: java + sql install
+step 2: download sqljdbc4.2.jar
+step 3: confiure sqljdbc jar file in eclipse
+        (driver)
+        eclipse project name --> right click --> properties
+        --> java build path --> libraries -> add external jar
+	--> select jar file -->order and import - tick jar file
+	-->apply and close.
+step 4: test driver accept or not.
+	ex.
+	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	System.out.println("Driver accepted");
+		
+step 5:
+	connect with sql.
+	ex: import java.sql.*;
+	Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost\\sqlexpress;databaseName=student","sa","12345");
+		System.out.println("connection success");
+
+	prerequests:
+	1.open sql server configuration manager
+	  -->sql server browser must be started.
+	2.protocal for sqlexpress : tcp/ip --> enabled.
+	3.restart is must(sqlserver+browser).
+step 6:
+	create object from Statement Class.
+	ex:
+	Statement st=con.createStatement();
+	ResultSet rs=st.executeQuery("select * from exam");
+
+step 7: display all records from database.
+	ex:
+		while(rs.next())
+		{
+			System.out.println(rs.getString("rno")+"  "+rs.getString("name")+" "+rs.getString("mark"));
+		}
+		rs.close();
+		st.close();
+		con.close();	
+
