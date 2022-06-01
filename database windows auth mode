@@ -1,0 +1,4 @@
+
+// only windows authenthication mode
+Connection con=DriverManager.getConnection
+("jdbc:sqlserver://localhost\\sqlexpress;databasename=employee;integratedSecurity=true;trustservercertificate=true;");
