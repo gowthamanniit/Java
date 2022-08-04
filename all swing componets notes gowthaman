@@ -1,3 +1,85 @@
+=====================================
+
+package folder1;
+import javax.swing.*;
+public class SimpleApplent extends JFrame{
+	public SimpleApplent() {		
+		setLayout(null);
+		JLabel l1=new JLabel("Enter Your Name");
+		JTextField t1=new JTextField();
+		JLabel l2=new JLabel("Enter Your Password");
+		JPasswordField t2=new JPasswordField();
+		JButton b1=new JButton("Login");
+		//------------------------------------------
+		ButtonGroup bg=new ButtonGroup();		
+		JRadioButton r1=new JRadioButton("male");
+		JRadioButton r2=new JRadioButton("female");
+		JRadioButton r3=new JRadioButton("others");
+		r1.setBounds(100, 250,100, 30);
+		r2.setBounds(200, 250,100, 30);
+		r3.setBounds(300, 250,100, 30);		
+		bg.add(r1);
+		bg.add(r2);
+		bg.add(r3);
+		add(r1);add(r2);add(r3);
+		//---------------------------------
+		JCheckBox c1=new JCheckBox("C");		
+		JCheckBox c2=new JCheckBox("C++");
+		JCheckBox c3=new JCheckBox("JAVA");
+		JCheckBox c4=new JCheckBox("PYTHON");
+		JCheckBox c5=new JCheckBox("None Of these Above");
+		//==============================
+		JList<String> li=new JList<String>();		
+		DefaultListModel<String> dlm=new DefaultListModel<String>();
+		dlm.addElement("january");
+		dlm.addElement("February");
+		dlm.addElement("March");
+		dlm.addElement("April");
+		dlm.addElement("May");		
+		li.setModel(dlm);
+		li.setBounds(100, 350,150, 150);
+		add(li);
+		//==============================
+		JComboBox<String> cb=new JComboBox<String>();
+		DefaultComboBoxModel<String> dcbm=new DefaultComboBoxModel<String>();
+		
+		dcbm.addElement("sunday");
+		dcbm.addElement("monday");
+		dcbm.addElement("tuesday");
+		dcbm.addElement("wednesday");		
+		dcbm.addElement("thursday");
+		dcbm.addElement("friday");
+		dcbm.addElement("saturday");
+		cb.setModel(dcbm);
+		cb.setBounds(300, 350, 150, 30);
+		add(cb);
+		
+		l1.setBounds(100, 100, 200, 30);
+		t1.setBounds(250, 100, 200, 30);
+		l2.setBounds(100, 150, 200, 30);
+		t2.setBounds(250, 150, 200, 30);
+		b1.setBounds(100,200, 150, 30);
+		c1.setBounds(100, 300, 100, 30);
+		c2.setBounds(200, 300, 100, 30);
+		c3.setBounds(300, 300, 100, 30);
+		c4.setBounds(400, 300, 100, 30);
+		c5.setBounds(500, 300, 150, 30);
+		//===============================		
+		add(l1);
+		add(t1);
+		add(l2);
+		add(t2);
+		add(b1);
+		add(c1);add(c2);add(c3);add(c4);add(c5);				
+	}
+	public static void main(String args[])
+	{
+		JFrame f1=new SimpleApplent();
+		f1.setSize(600, 500);
+		f1.setVisible(true);
+	}	
+}
+======================================
 combobox - default combobox model
 ===================================
 package folder1;
