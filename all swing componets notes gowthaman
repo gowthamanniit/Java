@@ -1,0 +1,258 @@
+combobox - default combobox model
+===================================
+package folder1;
+import java.awt.event.*;
+
+import javax.swing.*;
+public class ItemDemo extends JFrame implements ItemListener
+{
+	JLabel ans;
+	JComboBox<String> months;
+	ImageIcon ic1=new ImageIcon("d:/images/1.jpg");
+	ImageIcon ic2=new ImageIcon("d:/images/2.jpg");
+	ImageIcon ic3=new ImageIcon("d:/images/3.jpg");
+	ImageIcon ic4=new ImageIcon("d:/images/4.jpg");
+	ImageIcon ic5=new ImageIcon("d:/images/5.jpg");
+	ImageIcon ic6=new ImageIcon("d:/images/6.jpg");
+	ItemDemo()
+	{
+		
+		setLayout(null);
+		ans=new JLabel("------------------");
+		ans.setBounds(100, 240, 300, 200);
+		DefaultComboBoxModel<String> dcbm=new DefaultComboBoxModel<String>();
+		String mo[]= {"Nehru","Gandhi","Kamarasar","vajpayee","abdulkalam","gowthaman"};
+		
+		for(int i=0;i<mo.length;i++)
+		{
+			dcbm.addElement(mo[i]);
+		}
+		
+		months=new JComboBox<String>();
+		months.setModel(dcbm);
+
+		months.addItemListener(this);
+		months.setBounds(500, 100, 200, 30);
+		add(months);
+		
+		add(ans);
+	}
+	public static void main(String[] args) 
+	{
+		JFrame f1=new ItemDemo();
+		f1.setSize(500, 500);
+		f1.setVisible(true);
+	}
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if((months.getSelectedItem()+"").equals("Nehru"))
+		{
+			ans.setIcon(ic1);
+			ans.setText("Nehru"); 
+		}
+		else if((months.getSelectedItem()+"").equals("Gandhi"))
+		{
+			ans.setIcon(ic2);
+			ans.setText("Gandhi");
+		}
+		else if((months.getSelectedItem()+"").equals("Kamarasar"))
+		{
+			ans.setIcon(ic3);
+			ans.setText("Kamarasar");
+		}
+			else if((months.getSelectedItem()+"").equals("vajpayee"))
+			{
+			ans.setIcon(ic4);
+			ans.setText("Vajpayee");
+			}
+		else if((months.getSelectedItem()+"").equals("abdulkalam"))
+		{
+			ans.setIcon(ic5);
+			ans.setText("Abdulkalam");
+		}
+		else
+		{
+			ans.setIcon(ic6);
+			ans.setText("Gowthaman");
+		}
+		
+	}
+	
+}
+================================================
+package folder1;
+
+import javax.swing.*;
+public class GUI_03 extends JFrame 
+{
+	GUI_03()
+	{
+		setLayout(null);
+		ButtonGroup bg=new ButtonGroup();
+		JRadioButton b1=new JRadioButton("Male");
+		JRadioButton b2=new JRadioButton("FeMale");
+		JRadioButton b3=new JRadioButton("Others");
+		bg.add(b1);
+		bg.add(b2);
+		bg.add(b3);
+		b1.setBounds(100, 100, 100, 30);
+		b2.setBounds(200, 100, 100, 30);
+		b3.setBounds(300, 100, 100, 30);
+		add(b1);add(b2);add(b3);
+	}
+	public static void main(String[] args) 
+	{
+		JFrame f1=new GUI_03();
+		f1.setSize(500,500);
+		f1.setVisible(true);				
+	}
+}
+==========================================
+package folder1;
+import javax.swing.*;
+public class GUI_04 extends JFrame
+{
+	GUI_04()
+	{
+		setLayout(null);
+		DefaultComboBoxModel<String> dcbm=new DefaultComboBoxModel<String>();
+		String mo[]= {"sunday","monday","tuesday","wednesday","thursday","friday","saturday"};
+		
+		for(int i=0;i<mo.length;i++)
+		{
+			dcbm.addElement(mo[i]+"  "+i);
+		}
+		
+		JComboBox<String> months=new JComboBox<String>();
+		months.setModel(dcbm);
+				
+		months.setBounds(500, 100, 200, 30);
+		add(months);
+		
+		JCheckBox c1=new JCheckBox("C");
+		JCheckBox c2=new JCheckBox("C++");
+		JCheckBox c3=new JCheckBox("JAVA");
+		JCheckBox c4=new JCheckBox("PYTHON");
+		JCheckBox c5=new JCheckBox("None Of These Above");
+		c1.setBounds(100, 100, 100, 30);
+		c2.setBounds(200, 100, 100, 30);
+		c3.setBounds(300, 100, 100, 30);
+		c4.setBounds(400, 100, 100, 30);
+		c5.setBounds(500, 100, 150, 30);
+		add(c1);
+		add(c2);
+		add(c3);
+		add(c4);
+		add(c5);
+	}
+	public static void main(String[] args) 
+	{
+		JFrame f1=new GUI_04();
+		f1.setSize(500, 500);
+		f1.setVisible(true);
+	}
+}
+==================================
+package folder1;
+
+import java.awt.Font;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class KeyDemo1 extends JFrame implements KeyListener{
+
+	JTextField t1;
+	JTextField t2;
+	JLabel ans;
+	ImageIcon p1,p2,p3;
+	KeyDemo1()
+	{
+		setLayout(null);
+		Font f1=new Font("Arial",Font.BOLD,35);
+		t1=new JTextField();
+		p1=new ImageIcon("d:/images/gowtham.jpg");
+		p2=new ImageIcon("d:/images/kamal.jpg");
+		p3=new ImageIcon("d:/images/rajini.jpg");
+		ans=new JLabel("----------------");
+		
+		t1.setBounds(100,50,300,60);
+		t1.setFont(f1);
+		ans.setBounds(100,150,500,200);
+		t1.addKeyListener(this);
+		add(t1);
+		
+		add(ans);		
+	}
+	public static void main(String[] args) {
+		
+		JFrame f1=new KeyDemo1();
+		f1.setSize(600,500);
+		f1.setVisible(true);
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(t1.getText().equals("gowthaman"))
+		{
+			ans.setIcon(p1);
+			ans.setText("gowthaman");
+		}
+		else if(t1.getText().equals("kamal"))
+			{
+			ans.setIcon(p2);
+			ans.setText("kamal");
+			}
+		else if(t1.getText().equals("rajini"))
+		{
+			ans.setIcon(p3);
+			ans.setText("rajini");
+		}
+		else
+		{
+			ans.setIcon(null);
+			ans.setText("Not Found");
+		}
+	}
+
+}
+=======================================
+package folder1;
+
+import javax.swing.*;
+public class ListBoxDemo extends JFrame {
+	ListBoxDemo()
+	{
+		setLayout(null);
+		DefaultListModel<String> dlm=new DefaultListModel<String>();
+		String mo[]= {"sunday","monday","tuesday","wednesday","thursday","friday","saturday"};
+		
+		for(int i=0;i<mo.length;i++)
+		{
+			dlm.addElement(mo[i]+"  "+i);
+		}
+		
+		
+		JList<String> jl=new JList<String>();
+		jl.setModel(dlm);
+		jl.setBounds(100, 100, 100, 200);		
+		add(jl);
+		
+	}
+	public static void main(String[] args) 
+	{
+		JFrame f1=new ListBoxDemo();
+		f1.setSize(600,500);
+		f1.setVisible(true);
+	}
+}
+============================
