@@ -1,0 +1,65 @@
+The concrete class is a base regular implementation which is declared initially for the all other methods related to it. This class do not have any unimplemented method, which is also can be extended to an abstract class on an interface class.
+
+  Syntax:
+class ConcreteCalculator {
+	static int add(int a, int b){
+		return a + b;
+	}
+	static int subtract(int a, int b){
+		Concrete Class in Java
+		return a - b;
+	}
+	static int multiply(int a, int b){
+		return a * b;
+	}
+	static int divide(int a, int b){
+		return a / b;
+	}
+	public static void main(String[] args){
+		//Declaration of main method
+		int sum = add(Value, Value);
+		int diff = subtract(Value, Value);
+		int prod = multiply(Value, Value);
+		int div = divide(Value, Value);
+		//Print the values of the process
+		System.out.println("" + sum);
+		System.out.println("" + diff);
+		System.out.println("" + prod);
+		System.out.println("" + div);
+	}
+}
+=======================best example. The class do not have any unimplemented methods ie. concrete class ===========
+abstract class Shape{
+	abstract double area();
+	abstract double perimeter();
+}
+class Circle extends Shape{
+	double r = 5;
+	public double area(){
+		return 3.14 * r * r;
+	}
+	public double perimeter(){
+		return 2 * 3.14 * r;
+	}
+}
+class Triangle extends Shape{
+	double a = 5;
+	double b = 12;
+	double c = 9;
+	double h = 4;
+	public double area(){
+		return b * h / 2;
+	}
+	public double perimeter(){
+		return a + b + c;
+	}
+}
+class Square extends Shape{
+	double a = 8;
+	public double area(){
+		return a * a;
+	}
+	public double perimeter(){
+		return 4 * a;
+	}
+}
