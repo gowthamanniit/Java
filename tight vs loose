@@ -73,3 +73,11 @@ public class Main {
         car.drive();
     }
 }
+
+🔍 Summary: Tight vs. Loose Coupling
+
+Final Thoughts
+Avoid tight coupling whenever possible.
+Embrace interfaces, dependency injection, and composition.
+Spring Boot helps you build loosely coupled, maintainable applications by default.
+💡 Tight coupling makes your code rigid. Loose coupling makes it adaptable.
