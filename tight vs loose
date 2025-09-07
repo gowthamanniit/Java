@@ -1,0 +1,75 @@
+Tight Coupling vs Loose Coupling in Java (with Examples)
+Learn the difference between tight coupling and loose coupling in Java. 
+Understand how loose coupling improves flexibility, testability, and design with simple examples.
+
+What is Coupling in Java?
+Coupling refers to the degree of dependency between two classes or modules.
+
+🤝 Tight Coupling = Classes are strongly dependent on each other.
+🪢 Loose Coupling = Classes are independent and interact via abstraction.
+
+🚨 Tight Coupling (Bad Design Practice)
+A tightly coupled class knows too much about another class. Changes in one class can break the other.
+==========================================
+🔧 Example: Tight Coupling
+class Engine {
+    public void start() {
+        System.out.println("Engine started");
+    }
+}
+
+class Car {
+    Engine engine = new Engine(); // Direct dependency
+
+    public void drive() {
+        engine.start();
+        System.out.println("Car is driving");
+    }
+}
+❌ Problems:
+You can’t switch to another engine easily (e.g., ElectricEngine).
+Hard to unit test Car without initializing Engine.
+Changes in Engine might break Car.
+===============================================================
+
+✅ Loose Coupling (Preferred Approach)
+In a loosely coupled design, classes depend on abstractions (interfaces), not concrete implementations.
+
+🌟 Benefits of Loose Coupling:
+Easy to test (you can mock dependencies).
+Easy to extend or replace components.
+Promotes cleaner design and maintainability.
+🔧 Example: Loose Coupling with Interface
+
+
+interface Engine {
+    void start();
+}
+
+class PetrolEngine implements Engine {
+    public void start() {
+        System.out.println("Petrol engine started");
+    }
+}
+
+class Car {
+    private Engine engine;
+
+    // Inject engine via constructor
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        engine.start();
+        System.out.println("Car is driving");
+    }
+}
+✅ Usage
+public class Main {
+    public static void main(String[] args) {
+        Engine engine = new PetrolEngine();
+        Car car = new Car(engine);
+        car.drive();
+    }
+}
