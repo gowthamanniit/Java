@@ -1,0 +1,81 @@
+Code example: Tight vs. loose coupling
+=========================================
+Tight coupling example
+=====================
+In this scenario, the Car class is tightly coupled to the 
+PetrolEngine. It creates the engine instance itself, 
+so if you want to use a different type of engine, 
+you would need to modify the Car class. 
+java
+====================================
+class PetrolEngine {
+    public void start() {
+        System.out.println("Starting petrol engine.");
+    }
+}
+
+class Car {
+    private PetrolEngine engine;
+
+    public Car() {
+        // Tightly coupled to a specific implementation
+        this.engine = new PetrolEngine();
+    }
+
+    public void startDriving() {
+        engine.start();
+        System.out.println("Car is driving.");
+    }
+}
+
+// In the main method...
+// Car car = new Car();
+// car.startDriving();
+=====================================
+Loose coupling example with interfaces and Dependency Injection
+================================================================
+Here, we introduce an Engine interface. The Car class now depends on the abstract Engine type, and a specific implementation is "injected" through its constructor. The Car class doesn't need to know the details of the engine it's using, making the system more flexible. 
+java
+// 1. Program to an interface
+interface Engine {
+    void start();
+}
+
+// 2. Concrete implementations
+class PetrolEngine implements Engine {
+    @Override
+    public void start() {
+        System.out.println("Starting petrol engine.");
+    }
+}
+
+class ElectricEngine implements Engine {
+    @Override
+    public void start() {
+        System.out.println("Starting electric motor.");
+    }
+}
+
+// 3. Use Dependency Injection
+class Car {
+    private Engine engine;
+
+    // Dependency is injected via the constructor
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void startDriving() {
+        engine.start();
+        System.out.println("Car is driving.");
+    }
+}
+
+// In the main method, we can easily swap implementations
+// Create a car with a petrol engine
+// Car petrolCar = new Car(new PetrolEngine());
+// petrolCar.startDriving();
+
+// Create a car with an electric engine
+// Car electricCar = new Car(new ElectricEngine());
+// electricCar.startDriving();
