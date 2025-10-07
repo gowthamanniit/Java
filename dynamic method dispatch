@@ -1,0 +1,43 @@
+Dynamic method dispatch, also known as runtime polymorphism, is a mechanism in Java where the method
+  to be executed is determined at runtime, not at compile time. This occurs when an overridden
+  method is called through a superclass reference variable that refers to a subclass object.
+
+  Key principles:
+Method Overriding: A subclass provides its own implementation of a method already defined in its
+  superclass.
+Upcasting: A superclass reference variable points to an object of a subclass.
+
+  class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class DynamicDispatchExample {
+    public static void main(String[] args) {
+        Animal myAnimal; // Declare a reference variable of type Animal
+
+        myAnimal = new Dog(); // myAnimal refers to a Dog object (upcasting)
+        myAnimal.makeSound(); // Calls Dog's makeSound() - Output: Dog barks
+
+        myAnimal = new Cat(); // myAnimal refers to a Cat object (upcasting)
+        myAnimal.makeSound(); // Calls Cat's makeSound() - Output: Cat meows
+
+        myAnimal = new Animal(); // myAnimal refers to an Animal object
+        myAnimal.makeSound(); // Calls Animal's makeSound() - Output: Animal makes a sound
+    }
+}
