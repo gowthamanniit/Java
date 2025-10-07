@@ -1,0 +1,31 @@
+Compile Time:
+This is the initial phase where the Java source code (.java files) is translated into bytecode 
+  (.class files) by the Java compiler (javac).
+During compilation, the compiler performs syntax checks, type checks, and other static analyses to
+ensure the code adheres to Java language rules.
+Compile-time errors: are detected during this phase. Examples include missing semicolons,
+  incorrect variable declarations, or attempting to use an undeclared method. If compile-time
+  errors exist, the .class file will not be generated, and the program 
+cannot proceed to execution.
+Run Time:
+This is the phase where the compiled Java bytecode (.class files) is executed by the Java Virtual 
+Machine (JVM).
+The JVM loads the bytecode, allocates memory, and performs the instructions specified in the 
+program.
+Run-time errors: (also known as exceptions) occur during this phase. These are errors that cannot 
+be detected by the compiler because they depend on the program's state or external factors at the 
+time of execution. Examples include NullPointerException, ArrayIndexOutOfBoundsException, or
+  ArithmeticException (e.g., division by zero).
+Key Differences Summarized:
+
+
+Feature                 Compile Time                 Run Time
+Phase     Source code to bytecode translation        Bytecode execution by JVM
+
+Tool       Java Compiler (javac)                     Java Virtual Machine (JVM)
+Errors     Syntax errors, type errors, 
+           static analysis issues                   Exceptions, logical errors, 
+                                                    resource-related errors
+Detection  Before program execution                 During program execution
+Outcome    .class files generated (if successful)   Program output or termination 
+                                                     (successful or with errors)
